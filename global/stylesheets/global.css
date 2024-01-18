@@ -1,0 +1,74 @@
+:root {
+    --background-color: #222222;
+    --background-color-low-opacity:#222222ca;
+    --background-color-2: #FFFFFF;
+    --buttons-bg-color: #C19B74;
+    --darker-bg-color: #1c1c1c;
+    --special-texts-color: #ffb070;
+    --header-color-white: #FFFFFF;
+    --header-color-dark: #222222;
+    --paragraph-color: rgb(163, 163, 163);
+}
+
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Oswald, sans-serif;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.link {
+    color: var(--paragraph-color);
+    transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.link::after{
+    content: '';
+    display: block;
+    height: 1px;
+    background-color: var(--special-texts-color);
+    width: 0%;
+    transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+
+
+.logo-container > h1 {
+    font-size: 2.5rem;
+    color: var(--special-texts-color);
+}
+
+.logo-container > p {
+    font-size: 1.5rem;
+    color: var(--header-color-white);
+}
+
+.small-para{
+    font-size: 1.1rem;
+    color: var(--paragraph-color);
+}
+
+
+@media screen and (hover: hover){
+    .link:hover {
+        color: var(--special-texts-color);
+    }
+
+    .link:hover::after{
+        content: '';
+        display: block;
+        height: 1px;
+        background-color: var(--special-texts-color);
+        width: 100%;
+    }
+
+}

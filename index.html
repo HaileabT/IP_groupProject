@@ -5,26 +5,41 @@
     <meta name="author" content="Section B Group 8">
     <meta name="description" content="NightStar Hotel Landing Page">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/stylesheets/header.css">
+    <link rel="stylesheet" href="/assets/stylesheets/main.css">
+    <link rel="stylesheet" href="/global/stylesheets/footer.css">
+    <link rel="stylesheet" href="/global/stylesheets/global.css">
+    <link rel="stylesheet" href="/global/stylesheets/global-header.css">
     <title>NightStar Hotel</title>
 </head>
 <body>
     <header id="main-header">
-        <div class="logo-container">
-            <h1 class="temp-logo">LOGO</h1>
-            <p class="temp-hotel-name">NightStar Hotel</p>
+        <video src="assets/videos/cinematic-hotel-video.mp4" autoplay muted loop class="header-bg-video"></video>
+        <div class="logo-and-nav-container fixed-header">
+            <div class="logo-container header-logo-container">
+                <h1 class="logo">LOGO</h1>
+                <p class="hotel-name header-hotel-name">NightStar Hotel</p>
+            </div>
+            <nav id="primary-nav">
+                <ul type="none" class="nav-ul header-links-nav-ul">
+                    <li id="head-home-list"><a href="index.html" id="head-home-link" class="link">Home</a></li>
+                    <li id="head-booking-list" ><a href="/booking/booking.html" id="head-booking-link" class="link">Book Now</a></li>
+                    <li id="head-about-us-list"><a href="/about/about.html" id="head-about-us-link" class="link">About</a></li>
+                    <li id="head-contact-us-list"><a href="/contact-us/contact_us.html" id="head-contact-us-link" class="link">Contact Us</a></li>
+                    <li id="head-signup-list"><a href="/signin-and-signup/signup.html" id="head-signup-link" class="link">Sign Up</a></li>
+                    <li id="head-login-list"><a href="/signin-and-signup/signin.html" id="head-login-link" class="link">Login</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav id="primary-nav">
-            <ul type="none">
-                <li id="head-home-list"><a href="index.html" id="head-home-link">Home</a></li>
-                <li id="head-booking-list"><a href="/booking/booking.html" id="head-booking-link">Book Now</a></li>
-                <li id="head-about-us-list"><a href="/about/about.html" id="head-about-us-link">About</a></li>
-                <li id="head-contact-us-list"><a href="/contact-us/contact_us.html" id="head-contact-us-link">Contact Us</a></li>
-                <li id="head-signup-list"><a href="/signin-and-signup/signup.html" id="head-signup-link">Sign Up</a></li>
-                <li id="head-login-list"><a href="/signin-and-signup/signin.html" id="head-login-link">Login</a></li>
-            </ul>
-        </nav>
-        <div class="slogan-container">
-            <h1>Our goal is to serve you, and serve you well.</h1>
+
+        <div class="motto-container">
+            <div class="motto-hotel-name"><h1>NIGHTSTAR HOTEL</h1></div>
+            <h1>OUR GOAL IS TO SERVE YOU, AND <span>SERVE YOU WELL</span>.</h1>
+        </div>
+
+        <div class="credits">
+            <h2>Section Group 8, 3rd Year SWENG, <span>AASTU</span></h2>
+            <p class="small-para">Members <span>Haileab Tesfaye</span>, <span>Ephrem Mandefro</span>, <span>Haileyesus Asrat</span>, <span>Eyoel Tedla</span>, <span>Estifanos Zinabu</span> and <span>Henok Tademe</span></p>
         </div>
     </header>
 
@@ -81,16 +96,17 @@
         </section>
     </main>
     <footer id="main-footer">
-        <tr align="center"><h1 align="center">LOGO</h1></tr>
+        <tr><h1>LOGO</h1></tr>
             
-            <a href="booking.html" class="">Booking</a>
-            <a href="about.html" class="">About</a>
-            <a href="contact_us.html" class="">Contact Us</a>
-            <a href="#main-header" class="">Back to Top</a>
-            <a href="signup.html" class="">Sign Up</a>
-            <a href="signin.html" class="">Login</a>
+            <a href="booking.html" class="link">Booking</a>
+            <a href="about.html" class="link">About</a>
+            <a href="contact_us.html" class="link">Contact Us</a>
+            <a href="#main-header" class="link">Back to Top</a>
+            <a href="signup.html" class="link">Sign Up</a>
+            <a href="signin.html" class="link">Login</a>
 
             <td colspan="2" align="center"><p>&copy; NightStar Hotel</p></td>
     </footer>
+    <script src="global/scripts/header.js"></script>
 </body>
 </html>
