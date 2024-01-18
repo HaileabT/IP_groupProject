@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="author" content="Section B Group 8">
+    <meta name="description" content="Book one of the NightStar Hotel Sevices">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NightStars Booking page</title>
 </head>
@@ -25,6 +27,8 @@
                                             <td align="center"><li id="head-booking-list"><a href="booking.html" id="head-booking-link">Book Now</a></li></td>
                                             <td align="center"> <li id="head-about-us-list"><a href="about.html" id="head-about-us-link">About</a></li></td>
                                             <td align="center"><li id="head-contact-us-list"><a href="contact_us.html" id="head-contact-us-link">Contact Us</a></li></td>
+                                            <td align="center"><li id="head-signup-list"><a href="signup.html" id="head-signup-link">Sign Up</a></li></td>
+                                            <td align="center"><li id="head-login-list"><a href="signin.html" id="head-login-link">Login</a></li></td>
                                         </table>
                                     </ul>
                                 </nav>
@@ -35,54 +39,72 @@
             
                 </td>
             </tr>
-            <tr>
-                <td align="center" height="100px" VALIGN="center">
-                    <h1>Our goal is to serve you, and serve you well.</h1>
-                </td>
-            </tr>
         </table>
 
     </header>
     <main>
-        <center>
-            <h1 class="booking-title">Reserve Now for Unforgettable Moments at NightStars Hotel</h1>
-        </center>
-        <div class="booking-form-container">
-            <form action="" class="booking-form">
-                <h2 class="slogan">Experiance something new always</h2>
-                <label for="booking-first-name booking-last-name">Name</label>
-                <input type="" class="booking-first-name" placeholder="Enter first name">
-                <input type="text" class="booking-last-name" placeholder="Enter last name">
-                <label for="booking-email" class="email-title">Email *</label>
-                <input type="email" class="booking-email" placeholder="ex.myname@example.com">
-                <label for="booking-room-type-title" class="room-type-title">Room type</label>
-                <select name="" id="" aria-placeholder="Please Select">
-                    <option value="" selected>Please Select</option>
-                    <option value="">Standard Room(1 to 2 People)</option>
-                    <option value="">Fmily Room(2 to 4 People)</option>
-                    <option value="">Private Room(1 to 3 People)</option>
-                    <option value="">Mix Dorm Room(6 People)</option>
-                    <option value="">Female Dorm Room(6 People)</option>
-                    <option value="">Male Dorm Room(6 People)</option>
-                </select>
-                <label for="guest-number" class="guest-number-title">Number of Guests *</label>
-                <input type="number" value="0" >
-                <label for="booking-arrival-date" class="arrival-date-title">Arrival Date *</label>
-                <input type="date" class="booking-arrival-date" aria-placeholder="DD-MM-YY" >
-               <label for="booking-departure-date" class="departure-date-title">Departure Date *</label>
-               <input type="date" class="booking-departure-date" aria-placeholder="DD-MM-YY" >
-               <label for="booking-pickup" class="pickup-title">Free Pickup?*</label>
-               <input type="radio" class="yes-pickup" value=""><lable class="yes-radio">Yes Please! -Pick me up on arrival</lable>
-               <input type="radio" class="no-pickup" value=""><lable class="yes-radio">No Thanks -I'll make my own way there</lable>
-               <label for="booking-flight-number" class="booking-flight-number-title">Flight Number</label>
-               <input type="number" class="booking-flight-number">
-               <label for="special-request" class="special-request-title">Special Request</label>
-               <textarea name="" id="" cols="50" rows="4" class="special-request">
-    
-               </textarea>
-               
-            </form>
-        </div>
+        <table>
+            <tr height="50px">
+                <td width="30%"></td>
+                <td></td>
+                <td width="30%"></td>
+            </tr>
+            <tr >
+                <td></td>
+                <td align="center"><h1 align="center" class="booking-title">Reserve Now for Unforgettable Moments at NightStars Hotel</h1></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="booking-form-container">
+                        <form action="" class="booking-form">
+                            <h2 align="center" class="slogan">Experiance something new always</h2>
+                            <label for="booking-first-name booking-last-name">Name</label> <br>
+                            <input type="" id="booking-first-name" placeholder="Enter first name" required>
+                            <input type="text" id="booking-last-name" placeholder="Enter last name" required> <br> <br>
+                            <label for="booking-email" class="email-title">Email</label> <br> 
+                            <input type="email" id="booking-email" placeholder="ex.myname@example.com" required> <br> <br>
+                            <label for="booking-room-type-title" class="room-type-title">Room type</label> <br>
+                            <select name="" id="booking-room-type-title" aria-placeholder="Please Select" required>
+                                <option value="" selected>Please Select</option>
+                                <option value="">Standard Room(1 to 2 People)</option>
+                                <option value="">Fmily Room(2 to 4 People)</option>
+                                <option value="">Private Room(1 to 3 People)</option>
+                                <option value="">Mix Dorm Room(6 People)</option>
+                                <option value="">Female Dorm Room(6 People)</option>
+                                <option value="">Male Dorm Room(6 People)</option>
+                            </select> <br> <br>
+                            <label for="guest-number" id="guest-number-title">Number of Guests</label> <br>
+                            <input type="number" value="0" required> <br> <br>
+                            <label for="booking-arrival-date" id="arrival-date-title">Arrival Date</label> <br>
+                            <input type="date" class="booking-arrival-date" aria-placeholder="DD-MM-YY" required> <br> <br>
+                           <label for="booking-departure-date" id="departure-date-title">Departure Date</label> <br>
+                           <input type="date" class="booking-departure-date" aria-placeholder="DD-MM-YY" required> <br> <br>
+                           <label for="booking-pickup" id="pickup-title">Free Pickup?</label> <br>
+                           <input type="radio" id="yes-pickup" value="" name="free-pickup">
+                           <lable class="yes-radio">Yes Please! - Pick me up on arrival</lable> <br>
+                           <input type="radio" id="no-pickup" value=""  name="free-pickup"> 
+                           <lable class="yes-radio">No Thanks - I'll make my own way there</lable> <br> <br>
+                           <label for="booking-flight-number" id="booking-flight-number-title">Flight Number</label> <br>
+                           <input type="number" id="booking-flight-number"> <br> <br>
+                           <label for="special-request" id="special-request-title">Special Request</label> <br>
+                           <textarea name="" id="" cols="50" rows="4" id="special-request">
+                           </textarea> <br> <br>
+                           <input type="submit" value="Book" id="book-btn">
+                           
+                        </form>
+                    </div>
+                </td>
+                <td></td>
+            </tr>
+            <tr height="50px">
+                <td width="30%"></td>
+                <td></td>
+                <td width="30%"></td>
+            </tr>
+        </table>
+     
     </main>
     <footer id="main-footer">
         <table width="100%">
@@ -93,7 +115,7 @@
                     <tr align="center">
                         <td width="30%"></td>
                         <td width="20%">
-                            <a href="booking.html" class="">Booking</a>
+                            <a href="index.html" class="">Home</a>
                         </td>
                         <td width="20%">
                             <a href="about.html" class="">About</a>
@@ -107,6 +129,16 @@
                         </td>
                         <td width="20%">
                             <a href="#main-header" class="">Back to Top</a>
+                        </td>
+                        <td width="30%"></td>
+                    </tr>
+                    <tr align="center">
+                        <td width="30%"></td>
+                        <td width="20%">
+                            <a href="signup.html" class="">Sign Up</a>
+                        </td>
+                        <td width="20%">
+                            <a href="signin.html" class="">Login</a>
                         </td>
                         <td width="30%"></td>
                     </tr>
