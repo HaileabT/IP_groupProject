@@ -5,7 +5,7 @@
     max-width: 1200px;
     width: 90%;
     top: 1em;
-    padding: 1.5em 2em;
+    padding: 2em 2em;
     position: fixed;
     border-radius: 10px;
     transition: 1s cubic-bezier(0.19, 1, 0.22, 1);
@@ -19,6 +19,10 @@
 .logo-and-nav-container > nav {
     width: 60%;
     max-width: 400px;
+}
+
+.menu-btn {
+    display: none;
 }
 
 .logo-and-nav-container > nav > ul {
@@ -46,4 +50,78 @@
 
 .credits > .small-para > span { 
     color: var(--special-texts-color);
+}
+
+@media screen and (hover:hover){
+    .logo-and-nav-container:hover {
+        top: 1em !important;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .logo-and-nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    width: 90%;
+    top: 1em;
+    padding: 2em 2em;
+    position: fixed;
+    z-index: 100;
+    border-radius: 10px;
+    transition: 1s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+
+    .fixed-header {
+        background-color: var(--darker-bg-color);
+    }
+
+
+    #primary-nav {
+        position: absolute;
+        right: -100% !important;
+        bottom: 0;
+        translate: 0% 99%;
+        z-index: -1 !important;
+        padding: 2em;
+        border-radius:  0 0 5px 5px;
+        opacity: 1;
+        background-color: var(--darker-bg-color);
+        width: 100% !important;
+        transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1)
+    }
+    #primary-nav *{
+        z-index: -1 !important;
+    }
+    .logo-and-nav-container.show {
+        border-radius: 5px 5px 0 5px;
+        background-color: var(--darker-bg-color);
+        z-index: 100;
+    }
+    #primary-nav.show {
+        right: 0% !important;
+    }
+
+    .logo-and-nav-container > nav > ul {
+        /* flex-direction: column; */
+        justify-content: space-between;
+        
+
+    }
+
+    .menu-btn {
+        display: block;
+        padding: 5px 10px;
+        border-radius: 3px;
+        border: none;
+        display: grid;
+        place-items: center;
+        background-color: var(--special-texts-color);
+    }
+
+    .menu-btn > i {
+        color: var(--background-color);
+    }
 }

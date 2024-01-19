@@ -72,3 +72,22 @@ a {
     }
 
 }
+
+
+@media screen and (max-width: 660px){
+    html{
+        font-size: 45%;
+    }
+}
+
+@media screen and (max-width: 340px){
+    html{
+        font-size: 35%;
+    }
+}
+
+@media screen and (max-width: 260px){
+    html{
+        font-size: 25%;
+    }
+}
