@@ -1,0 +1,49 @@
+main > section:not(:nth-child(1)){
+    margin-top: 7em;
+}
+
+#speciality-section {
+    position: relative;
+    z-index: 1;
+    padding: 2em;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    place-items: center;
+    background-color: var(--background-color-2);
+}
+
+#speciality-section * {
+    color: var(--background-color)
+}
+
+#speciality-section img {
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+
+#speciality-section > div > h2{
+    font-size: 6rem;
+    /* border-bottom: solid var(--background-color) 1px; */
+}
+#speciality-section > div > h2 >span{
+   background-color: var(--special-texts-color);
+   padding: 2px;
+    /* border-bottom: solid var(--background-color) 1px; */
+}
+
+#speciality-section > div > p {
+    padding-top: 1em;
+    font-size: 1.6rem;
+}
+
+
+
+@media screen and (max-width: 900px){
+    #speciality-section{
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+    }
+}

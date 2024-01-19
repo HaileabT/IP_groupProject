@@ -22,6 +22,11 @@ html{
     font-size: 62.5%;
 }
 
+main {
+    padding: 7em 0;
+    background-color: #ececec;
+}
+
 a {
     text-decoration: none;
 }
@@ -38,6 +43,10 @@ a {
     background-color: var(--special-texts-color);
     width: 0%;
     transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+span{
+    color: var(--special-texts-color);
 }
 
 
