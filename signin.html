@@ -6,22 +6,34 @@
     <meta name="description" content="login to NightStar Hotel">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="signin.css">
+    <script src="sign.js" defer></script>
     <title>Login</title>
 </head>
-<body>
-  
-       
-                               
-                             
+<body>                    
     <main>
         
         <div class="main-login-container">
             <h1 class="login-text">Login</h1>
-            <form action="" method="post" class="all-login-form-container">
-                <label for="email">Email</label><br>
-                <input type="email" name="email" id="email" class="input" required>
-                <label for="password">Password</label><br>
-                <input type="password" name="password" id="password" class="input" minlength="8" required> 
+            <form action="" method="post" class="all-login-form-container" id="all-form-group" >
+                <div class="login-email-container container">
+                    <label for="email">Email</label><br>
+                    <div class="login-email-message-container icon-con">
+                        <input type="email" name="email" id="email" class="input" required pattern="^(.+)@(.+)$">
+                        <span class="success-icon">S</span>
+                        <Span class="fail-icon">F</Span>
+                    </div>
+                    <div class="Error-message"></div>
+                </div>
+                <div class="login-password-container container">
+                    <label for="password">Password</label><br>
+                    <div class="login-pass-message-container icon-con">
+                        <input type="password" name="password" id="password" class="input" minlength="8" custommaxlength="12" class="input" required> 
+                        <span class="success-icon">S</span>
+                         <Span class="fail-icon">F</Span>
+                    </div>
+                    <div class="Error-message"></div>
+                </div>
+                
                 <div class="login-container">
                     <input type="submit" value="Login" class="login-btn">
                 </div>
