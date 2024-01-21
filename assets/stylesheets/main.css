@@ -5,11 +5,11 @@ main > section:not(:nth-child(1)){
 #speciality-section {
     position: relative;
     z-index: 1;
-    padding: 2em;
+    padding: 4em 8em;
     overflow: hidden;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 10px;
+    column-gap: 20px;
     place-items: center;
     background-color: var(--background-color-2);
 }
@@ -39,11 +39,222 @@ main > section:not(:nth-child(1)){
     font-size: 1.6rem;
 }
 
+#about-us-section {
+    background-color: var(--background-color);
+    padding: 4em 8em;
+    display: grid;
+   grid-template-areas: 
+   'eyecatch eyecatch'
+   'story special'
+   ;
+   grid-gap: 10px;
+}
 
+.about-us-sec-article:nth-of-type(1){
+    grid-area: story;
+}
+.about-us-sec-article:nth-of-type(2){
+    grid-area: special;
+}
+.about-us-sec-article:nth-of-type(3){
+    grid-area: eyecatch;
+}
+
+.about-us-sec-article > h3 {
+    font-size: 3.5rem;
+    color: var(--special-texts-color);
+    margin-bottom: 10px;
+    border-bottom: solid var(--paragraph-color) 1px;
+}
+.about-us-sec-article > p {
+    font-size: 1.5rem;
+    color: var(--paragraph-color-light);
+}
+
+
+#services-provided {
+    padding: 4em 6em;
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#services-provided > article {
+    flex-basis: 25%;
+    display: grid;
+    place-items: center;
+    border: solid var(--background-color) 1px;
+    padding: 2em;
+    border-radius: 5px;
+    transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#services-provided > article * {
+    color: var(--background-color);
+}
+
+#services-provided > article > i {
+    font-size: 4rem;
+}
+#services-provided > article > p {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#accomodations{
+    background-color: var(--background-color-2);
+    padding: 4em 8em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+#accomodations > article {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    row-gap: 10px;
+    column-gap: 10px;
+    border: solid var(--paragraph-color) 2px;
+    background-color: var(--background-color-2);
+    padding: 2em;
+    box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.171);
+    transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.room-img-container-f{
+    grid-column: 2;
+    grid-row: 1 / 3;
+}
+
+.room-img-container-l{
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.accomodation-desc > h3  {
+    font-size: 3.5rem;
+    color: var(--background-color);
+}
+.accomodation-desc > p  {
+    font-size: 1.5rem;
+    color: var(--background-color);
+}
+
+#accomodations img {
+    border-radius: 5px;
+    object-fit: cover;
+    width: calc(100% - 10px);
+    height: 100%;
+}
+
+.in-room-services-art {
+    text-align: center;
+    grid-column: span 2;
+    grid-row: 3;
+    grid-template-columns: 1fr !important;
+}
+
+.in-room-services-art > h3 {
+    font-size: 3.5rem;
+    color: var(--background-color);
+}
+.in-room-services-art > p {
+    font-size: 1.5rem;
+    color: var(--background-color);
+}
 
 @media screen and (max-width: 900px){
     #speciality-section{
         grid-template-columns: 1fr;
         row-gap: 10px;
+    }
+}
+
+@media screen and (hover: hover){
+    
+#accomodations > article:hover {
+    scale: 1.1;
+    z-index: 100;
+}
+
+    #services-provided > article:hover {
+        background-color: var(--background-color);
+    }
+    .ser-art:hover .ser-icon, .ser-art:hover .ser-p {
+        color: var(--special-texts-color) !important;
+    }
+}
+
+@media screen and (max-width: 1400px) and (min-width: 460px){
+    #accomodations{
+        background-color: var(--background-color-2);
+        padding: 4em 8em;
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 40px;
+    }
+    #services-provided > article{
+        flex-basis: 30%;
+    }
+    #accomodations > article {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        row-gap: 10px;
+        column-gap: 10px;
+    }
+    
+    .room-img-container-f{
+        grid-column: 2;
+        grid-row: 1 / 3;
+    }
+    
+    .room-img-container-l{
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .in-room-services-art{
+        grid-column: span 1;
+    }
+}
+
+@media screen and (max-width: 460px){
+    #accomodations{
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+    }
+    #accomodations > article{
+        display: block;
+        padding: 2em;
+        
+    }
+
+    #accomodations img {
+        border-radius: 5px;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    #services-provided > article{
+        flex-basis: 50%;
+    }
+    .accomodation-desc {
+        margin-bottom: 10px;
+    }
+    .in-room-services-art{
+        grid-column: span 1;
+    }
+}
+
+@media screen and (max-width: 320px){
+    #about-us-section {
+       grid-template-areas: 
+       'eyecatch eyecatch'
+       'story story'
+       'special special'
+       ;
     }
 }

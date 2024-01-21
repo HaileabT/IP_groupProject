@@ -4,10 +4,12 @@
     --background-color-2: #FFFFFF;
     --buttons-bg-color: #C19B74;
     --darker-bg-color: #1c1c1c;
+    --lighter-bg-color: #f7f7f7;
     --special-texts-color: #ffb070;
     --header-color-white: #FFFFFF;
     --header-color-dark: #222222;
-    --paragraph-color: rgb(163, 163, 163);
+    --paragraph-color: rgb(93, 93, 93);
+    --paragraph-color-light: rgb(151, 151, 151);
 }
 
 
@@ -27,12 +29,20 @@ main {
     background-color: #ececec;
 }
 
+ul {
+    list-style: none;
+}
+
 a {
     text-decoration: none;
 }
 
+a.current {
+    color: var(--special-texts-color);
+}
+
 .link {
-    color: var(--paragraph-color);
+    color: var(--paragraph-color-light);
     transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 

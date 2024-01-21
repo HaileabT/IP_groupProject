@@ -25,6 +25,7 @@
 .motto-hotel-name > h1 {
     font-size: 2.5rem;
     color: var(--special-texts-color);
+    margin-bottom: 10px;
 }
 
 
@@ -39,9 +40,44 @@
 }
 
 
+.call-to-action {
+    background-color: var(--darker-bg-color);
+    padding: 5px 2em;
+    font-size: 2rem;
+    color: var(--buttons-bg-color);
+    border: solid 0.5rem;
+    border-image: linear-gradient(to right, rgb(72, 255, 252), rgb(255, 157, 104)) 1 stretch;
+    /* border-image: linear-gradient(to right, var(--background-color-2), var(--special-texts-color)) 1 stretch; */
+    display: block;
+    width: max-content;
+    animation: hue-rotate-call-to-action 3s infinite linear;
+}
+
+
+@keyframes hue-rotate-call-to-action {
+    0%{
+        filter: hue-rotate(0deg);
+    }
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
 
 
 
+
+@media screen and (max-width: 1185px){
+    .motto-container > h1 {
+        font-size: 4rem;
+    }
+    
+}
+@media screen and (max-width: 9650px) and (min-width: 660px){
+    .motto-container > h1 {
+        font-size: 3.5rem;
+    }
+    
+}
 
 
 @media screen and (min-width: 1000px){

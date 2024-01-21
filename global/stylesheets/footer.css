@@ -1,0 +1,28 @@
+#main-footer {
+    padding: 2em;
+    background-color: var(--darker-bg-color);
+    display: grid;
+    justify-items: center;
+    gap: 10px;
+}
+
+.footer-nav-links {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-nav-links > ul {
+    display: flex;
+    width: 80%;
+    max-width: 300px;
+    justify-content: space-between;
+}
+
+.footer-list-item > a {
+    font-size: 1.3rem;
+}
+
+.copywrite {
+    color: var(--special-texts-color);
+}
