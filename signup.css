@@ -3,7 +3,7 @@ body{
 }
 
 .main-form-container{
-    width: 45vw;
+    width: 45%;
     margin-left: auto;
     margin-right: auto;
     background-color: rgb(32, 28, 28);
@@ -14,11 +14,12 @@ input{
     width: 100%;
 
 }
+
 select{
     width: 100%;
 }
 .main-payment-container,.main-personal-container{
-   width: 35vw;
+    width: 80%;
     margin-left: auto;
     margin-right: auto;
     border-radius: 0.5em;
@@ -28,6 +29,7 @@ label,legend{
     color: white;
     font-size: 1rem;
 }
+
 .icon-cont{
  display: flex;
 justify-content: center;
@@ -35,10 +37,10 @@ position:relative;
 
 }
 .success-icon{
-    color: greenyellow;
+    color:green;
     position:  absolute;
     right: 0;
-
+    display: none;
 }
 .fail-icon{
     position:  absolute;
@@ -70,7 +72,6 @@ position:relative;
     outline: none;
     color: gray;
     margin:0.7em 0 1em 0;
-    display: re;
 }
 .name-container{
     display: grid;
@@ -105,9 +106,6 @@ position:relative;
     margin-top: 1.5em;
     margin-bottom: 1.5em;
 }
-input:focus{
-    color: blue;
-}
 .checkbox-contianer{
     width: 43vw;
     margin-left: auto;
@@ -122,4 +120,16 @@ input:focus{
     border-radius: 3em;
     color: white;
   
+}
+.visible{
+    display: block;
+}
+
+@media (max-width:1300px){
+    .main-form-container{
+        width: 80%;
+    }
+    .main-payment-container,.main-personal-container{
+        width: 80%;
+    }
 }
