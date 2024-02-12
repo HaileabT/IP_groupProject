@@ -67,8 +67,8 @@ main {
   font-size: 1.5rem;
   border: solid 2px var(--background-color);
 }
-.agreement-box{
-  accent-color:var(--background-color);
+.agreement-box {
+  accent-color: var(--background-color);
 }
 label {
   color: var(--background-color);
@@ -99,7 +99,7 @@ label {
 .visible {
   display: block !important;
 }
-#main-footer{
+#main-footer {
   position: fixed;
   bottom: 0;
   left: 0;
