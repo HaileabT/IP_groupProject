@@ -1,112 +1,106 @@
 :root {
-    --background-color: #222222;
-    --background-color-low-opacity:#222222ca;
-    --background-color-2: #FFFFFF;
-    --buttons-bg-color: #C19B74;
-    --darker-bg-color: #1c1c1c;
-    --lighter-bg-color: #f7f7f7;
-    --special-texts-color: #ffb070;
-    --header-color-white: #FFFFFF;
-    --header-color-dark: #222222;
-    --paragraph-color: rgb(93, 93, 93);
-    --paragraph-color-light: rgb(151, 151, 151);
+  --background-color: #222222;
+  --background-color-low-opacity: #222222ca;
+  --background-color-2: #ffffff;
+  --buttons-bg-color: #c19b74;
+  --darker-bg-color: #1c1c1c;
+  --lighter-bg-color: #e8e8e8b1;
+  --special-texts-color: #ffb070;
+  --header-color-white: #ffffff;
+  --header-color-dark: #222222;
+  --paragraph-color: rgb(93, 93, 93);
+  --paragraph-color-light: rgb(151, 151, 151);
 }
 
-
-*{
-    padding: 0;
-    margin: 0;
-    font-family: Oswald, sans-serif;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Oswald, Impact;
+  box-sizing: border-box;
 }
 
-html{
-    font-size: 62.5%;
+html {
+  font-size: 62.5%;
 }
 
 main {
-    padding: 7em 0;
-    background-color: #ececec;
+  padding: 7em 0;
+  background-color: #ececec;
 }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a.current {
-    color: var(--special-texts-color);
+  color: var(--special-texts-color);
 }
 
 .link {
-    color: var(--paragraph-color-light);
-    transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  color: var(--paragraph-color-light);
+  transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.link::after{
-    content: '';
-    display: block;
-    height: 1px;
-    background-color: var(--special-texts-color);
-    width: 0%;
-    transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+.link::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: var(--special-texts-color);
+  width: 0%;
+  transition: 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-span{
-    color: var(--special-texts-color);
+span {
+  color: var(--special-texts-color);
 }
-
-
 
 .logo-container > h1 {
-    font-size: 2.5rem;
-    color: var(--special-texts-color);
+  font-size: 2.5rem;
+  color: var(--special-texts-color);
 }
 
 .logo-container > p {
-    font-size: 1.5rem;
-    color: var(--header-color-white);
+  font-size: 1.5rem;
+  color: var(--header-color-white);
 }
 
-.small-para{
-    font-size: 1.1rem;
-    color: var(--paragraph-color);
+.small-para {
+  font-size: 1.1rem;
+  color: var(--paragraph-color);
 }
 
+@media screen and (hover: hover) {
+  .link:hover {
+    color: var(--special-texts-color);
+  }
 
-@media screen and (hover: hover){
-    .link:hover {
-        color: var(--special-texts-color);
-    }
-
-    .link:hover::after{
-        content: '';
-        display: block;
-        height: 1px;
-        background-color: var(--special-texts-color);
-        width: 100%;
-    }
-
+  .link:hover::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: var(--special-texts-color);
+    width: 100%;
+  }
 }
 
-
-@media screen and (max-width: 660px){
-    html{
-        font-size: 45%;
-    }
+@media screen and (max-width: 660px) {
+  html {
+    font-size: 45%;
+  }
 }
 
-@media screen and (max-width: 340px){
-    html{
-        font-size: 35%;
-    }
+@media screen and (max-width: 340px) {
+  html {
+    font-size: 35%;
+  }
 }
 
-@media screen and (max-width: 260px){
-    html{
-        font-size: 25%;
-    }
+@media screen and (max-width: 260px) {
+  html {
+    font-size: 25%;
+  }
 }
