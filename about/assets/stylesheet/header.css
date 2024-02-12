@@ -1,0 +1,89 @@
+#main-header {
+  display: grid;
+  place-items: center;
+  background-color: var(--background-color);
+  padding: 0em 2em 2em 2em;
+  height: 75svh;
+  width: 100%;
+  position: relative;
+}
+
+.header-bg-video {
+  display: none;
+}
+
+.motto-container {
+  width: 100%;
+  padding: 0em 2em;
+}
+
+.motto-hotel-name {
+  width: 50%;
+  border-bottom: solid 2px var(--special-texts-color);
+}
+
+.motto-hotel-name > h1 {
+  font-size: 2.5rem;
+  color: var(--special-texts-color);
+  margin-bottom: 10px;
+}
+
+.motto-container > h1 {
+  font-size: 5rem;
+  max-width: 50%;
+  color: var(--header-color-white);
+}
+
+.motto-container > h1 > span {
+  color: var(--special-texts-color);
+}
+
+.call-to-action {
+  background-color: var(--darker-bg-color);
+  padding: 5px 2em;
+  font-size: 2rem;
+  color: var(--buttons-bg-color);
+  border: solid 0.5rem;
+  border-image: linear-gradient(to right, rgb(72, 255, 252), rgb(255, 157, 104))
+    1 stretch;
+  /* border-image: linear-gradient(to right, var(--background-color-2), var(--special-texts-color)) 1 stretch; */
+  display: block;
+  width: max-content;
+  animation: hue-rotate-call-to-action 3s infinite linear;
+}
+
+@keyframes hue-rotate-call-to-action {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 1185px) {
+  .motto-container > h1 {
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width: 9650px) and (min-width: 660px) {
+  .motto-container > h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #main-header {
+    background-color: var(--background-color-low-opacity);
+  }
+  .header-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    display: block;
+  }
+}

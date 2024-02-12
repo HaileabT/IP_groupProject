@@ -1,91 +1,105 @@
 main {
-    padding: 0 0 !important;
+  padding: 0 0 !important;
 }
 
 main > article h1 {
-    font-size: 3rem;
-    text-align: center;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-    color: var(--background-color);
+  font-size: 3rem;
+  text-align: center;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  color: var(--background-color);
 }
 
-.booking-form-container{
-    background-color: var(--background-color-2);
-    padding-bottom: 8em;
-    padding-top: 16em;
+.booking-form-container {
+  background-color: var(--background-color-2);
+  padding-bottom: 8em;
+  padding-top: 16em;
 }
 
 .booking-form {
-    width: 80%;
-    max-width: 750px;
-    margin: 0 auto;
+  width: 80%;
+  max-width: 750px;
+  border: solid 1px var(--background-color);
+  padding: 2em;
+  border-radius: 0.5em;
+  margin: 0 auto;
 }
 
 .booking-form label {
-    font-size: 1.7rem;
-    display: block;
-    color: var(--paragraph-color);
+  font-size: 1.7rem;
+  display: block;
+  color: var(--paragraph-color);
 }
 
-.booking-form > div {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 10px;
+.input-container {
+  margin-bottom: 10px;
 }
 
-.booking-form > input:not(:last-of-type), .booking-form div > input, .booking-form > select, .booking-form > textarea{
-    margin-bottom: 10px;
-    width: 100%;
+.booking-form > div.name-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
 }
 
-.booking-form input, .booking-form > select, .booking-form > textarea {
-    background-color: var(--lighter-bg-color);
-    border: solid var(--darker-bg-color) 1px;
-    padding: 0.8em;
-    border-radius: 5px;
+.booking-form > input:not(:last-of-type),
+.booking-form div > input,
+.booking-form select,
+.booking-form > textarea {
+  width: 100%;
 }
 
-.booking-form > textarea{
-    resize: vertical;
+.booking-form input,
+.booking-form select,
+.booking-form > textarea {
+  background-color: var(--lighter-bg-color);
+  border: solid var(--darker-bg-color) 1px;
+  padding: 0.8em;
+  border-radius: 5px;
+}
+
+.booking-form > textarea {
+  resize: vertical;
 }
 
 .radio-label {
-    display: inline !important;
-    font-size: 1.5rem;
-    color: var(--background-color);
+  display: inline !important;
+  font-size: 1.5rem;
+  color: var(--background-color);
 }
 
-
-
 #pickup-title {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 #pickup-title p {
-    margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 #pickup-title input {
-    accent-color: var(--background-color);
+  accent-color: var(--background-color);
 }
 
 #book-btn {
-    background-color: var(--special-texts-color);
-    color: var(--darker-bg-color);
-    padding-left: 4em; 
-    padding-right: 4em; 
-    font-size: 1.5rem;
-    font-weight: bold;
-    cursor: pointer;
+  background-color: var(--special-texts-color);
+  color: var(--darker-bg-color);
+  padding-left: 4em;
+  padding-right: 4em;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 460px){
-    .booking-form > div {
-        display: grid;
-        grid-template-columns: 1fr;
-        row-gap: 10px;
-    }
+@media screen and (max-width: 460px) {
+  .booking-form > div.name-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+  }
+}
+
+.error-message {
+  font-size: 1.2rem;
+  color: red;
 }
