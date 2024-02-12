@@ -50,7 +50,8 @@ fieldset {
 }
 
 legend {
-  font-size: 2rem;
+  font-size: 1.7rem;
+  font-weight: 900;
   color: var(--paragraph-color);
 }
 
