@@ -8,8 +8,7 @@ const validators = [
         this.errorMessage = "Name too short!";
         return false;
       }
-      if (names) {
-        console.log(names);
+      if (!/^[A-Za-z]+$/.test(names)) {
         this.errorMessage = "No special characters or numbers please!";
         return false;
       }
@@ -38,7 +37,7 @@ const validators = [
         return false;
       }
       if (date !== null) {
-        if (new Date(date) < new Date()) {
+        if (new Date(date) < new Date() && new Date(date) != new Date()) {
           this.errorMessage = "Date can not be set to the past";
           return false;
         }
