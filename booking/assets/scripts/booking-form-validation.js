@@ -8,8 +8,7 @@ const validators = [
         this.errorMessage = "Name too short!";
         return false;
       }
-      if (names) {
-        console.log(names);
+      if (!/^[A-Za-z]+$/.test(names)) {
         this.errorMessage = "No special characters or numbers please!";
         return false;
       }
