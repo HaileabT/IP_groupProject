@@ -37,7 +37,7 @@ const validators = [
         return false;
       }
       if (date !== null) {
-        if (new Date(date) < new Date() && new Date(date) != new Date()) {
+        if (new Date(date) < new Date() && new Date(date) !== new Date()) {
           this.errorMessage = "Date can not be set to the past";
           return false;
         }
