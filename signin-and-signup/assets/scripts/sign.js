@@ -1,4 +1,4 @@
-const verify = document.getElementById("varify1");
+
 const validationForm = (FormSelector) => {
   const formElement = document.querySelector(FormSelector);
   const validationOptions = [
