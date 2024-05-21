@@ -1,4 +1,4 @@
-
+const id=document.getElementById("all-form-groups");
 const validationForm = (FormSelector) => {
   const formElement = document.querySelector(FormSelector);
   const validationOptions = [
@@ -81,7 +81,7 @@ const validationForm = (FormSelector) => {
     });
   });
   formElement.addEventListener("submit", (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     validateAllFormGroup(formElement);
   });
   const validateAllFormGroup = (formValidate) => {
