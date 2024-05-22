@@ -57,7 +57,8 @@
             </div>
         </header>
         <div class="all-signup-container">
-            <form action="/controller/formValidation.php" method="POST" class="main-form-container" id="all-form-group">
+            <form action="./controller/validator/signupValidator.php" method="POST" class="main-form-container"
+                id="all-form-group">
                 <h1 class="signup-text">Signup</h1>
                 <fieldset class="main-personal-container">
                     <legend>Personal Info</legend>
@@ -163,7 +164,7 @@
                 </fieldset>
                 <section class="foot-container">
                     <div class="checkbox-contianer">
-                        <input type="checkbox" name="policy" id="policy" class="agreement-box" />
+                        <input type="checkbox" name="policy[]" id="policy" class="agreement-box" />
                         <label for="policy" class="check-note">
                             By checking this body you confirm that you agree with our terms
                             and conditions that has to do with your account information on
