@@ -24,22 +24,60 @@ function bookingTableCreation($connection)
 function insertBookingInfo($connection, string $first_name = "", string $last_name = "", string $email = "", $booker_id = null, $room_id, int $number_of_guests, $arrival_date, $departure_date)
 {
     $error = "";
-    if ($room_id === -1) {
-        $error = "No room choosen";
+    echo $room_id;
+    if ($room_id == -1) {
+        header("Location: /booking/booking.php?error=You haven't chosen a room.");
     }
-    if ($booker_id === null) {
-        $sql = "INSERT INTO Bookings (first_name,last_name,email, room_id, number_of_guests,arrival_date, departure_date) VALUES('$first_name','$last_name','$email', $room_id,$number_of_guests,'$arrival_date','$departure_date')";
+    $getBookings = "SELECT * FROM bookings";
+    $allBookings = mysqli_query($connection, $getBookings);
+    if ($allBookings instanceof mysqli_result) {
+
+        while ($booking = mysqli_fetch_array($allBookings)) {
+            $arrival = new DateTime($booking['arrival_date']);
+            $input_arrival_date = DateTime::createFromFormat('Y-m-d H:i:s', $arrival_date);
+            $departure = new DateTime($booking['departure_date']);
+            $input_departure_date = DateTime::createFromFormat('Y-m-d H:i:s', $departure_date);
+            // $date = $input_arrival_date->format('Y-m-d');
+
+
+            if ($arrival <= $input_arrival_date && $departure >= $input_arrival_date) {
+                header("Location: /booking/booking.php?error=Room already booked on those dates.");
+                exit();
+            }
+            if ($arrival == $input_arrival_date || $departure == $input_arrival_date) {
+                header("Location: /booking/booking.php?error=Room already booked on those dates.");
+                exit();
+            }
+            if ($arrival <= $input_departure_date && $departure >= $input_departure_date) {
+                header("Location: /booking/booking.php?error=Room already booked on those dates.");
+                exit();
+            }
+            if ($arrival == $input_departure_date || $departure == $input_departure_date) {
+                header("Location: /booking/booking.php?error=Room already booked on those dates.");
+                exit();
+            }
+
+        }
+
+        if ($booker_id === null) {
+            $sql = "INSERT INTO Bookings (first_name,last_name,email, room_id, number_of_guests,arrival_date, departure_date) VALUES('$first_name','$last_name','$email', $room_id,$number_of_guests,'$arrival_date','$departure_date')";
+        } else {
+            $sql = "INSERT INTO Bookings (booker_id, room_id, number_of_guests, arrival_date, departure_date) VALUES($booker_id, $room_id, $number_of_guests, '$arrival_date', '$departure_date')";
+        }
+        if (mysqli_query($connection, $sql)) {
+            //success code
+            header("Location: /booking/booking.php?success=Booked successfully");
+        } else {
+            //error handler
+            header("Location: /booking/booking.php?error=Internal Server Error");
+        }
+
     } else {
-        $sql = "INSERT INTO Bookings (booker_id, room_id, number_of_guests, arrival_date, departure_date) VALUES($booker_id, $room_id, $number_of_guests, '$arrival_date', '$departure_date')";
-    }
-    if (mysqli_query($connection, $sql)) {
-        //success code
-        header("Location: /booking/booking.php");
-    } else {
-        //error handler
-        header("Location: /booking/booking.php");
+        header("Location: /booking/booking.php?error=Internal Server Error.");
     }
 }
+
+
 
 function getAllRooms($connection, $room_name = "", $skip = 0, $limit = 10, $orderBy = "", $type = "")
 {

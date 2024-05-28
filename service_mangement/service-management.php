@@ -1,3 +1,15 @@
+<?php
+session_save_path('C:\xampp_sessions');
+session_start();
+
+if (isset($_SESSION["email"]) && isset($_SESSION["id"])) {
+    include "../controller/database/dbConnection.php";
+    $userId = $_SESSION["id"];
+    $sql = "SELECT * FROM User WHERE id='$userId'";
+    $userData = mysqli_fetch_array(mysqli_query($connection, $sql));
+    $user_position = $userData['position'];
+    $user_name = $userData['first_name'];
+} ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,20 +76,20 @@
             <nav id="primary-nav">
                 <ul type="none" class="nav-ul header-links-nav-ul">
                     <li id="head-home-list">
-                        <a href="../index.html" id="head-home-link" class="link">Home</a>
+                        <a href="../index.php" id="head-home-link" class="link">Home</a>
                     </li>
                     <li id="head-booking-list">
                         <a href="../booking/booking.php" id="head-booking-link" class="link">Book Now</a>
                     </li>
                     <li id="head-contact-us-list">
                         <a href="../service_mangement/service-management.php" id="head-contact-us-link"
-                            class="link current">Service Management</a>
+                            class="link current">Services</a>
                     </li>
                     <li id="head-about-us-list">
-                        <a href="../about/about.html" id="head-about-us-link" class="link">About</a>
+                        <a href="../about/about.php" id="head-about-us-link" class="link">About</a>
                     </li>
                     <li id="head-contact-us-list">
-                        <a href="../contact-us/contact_us.html" id="head-contact-us-link" class="link">Contact
+                        <a href="../contact-us/contact_us.php" id="head-contact-us-link" class="link">Contact
                             Us</a>
                     </li>
                     <li id="head-signup-list">
@@ -99,6 +111,12 @@
             <h1 align="center" class="booking-title">
                 Add a Room
             </h1>
+            <?php if (isset($_GET['error'])) { ?>
+            <h2 class="err-msg"><?php echo $_GET['error'] ?></h2>
+            <?php } ?>
+            <?php if (isset($_GET['success'])) { ?>
+            <h2 class="success-msg"><?php echo $_GET['success'] ?></h2>
+            <?php } ?>
             <form action="./controller/validator/servicesValidator.php" method="POST" enctype="multipart/form-data"
                 class="room-form" id="room-form">
                 <div class="input-container">
@@ -234,23 +252,32 @@
         <nav class="footer-nav-links">
             <ul>
                 <li class="footer-list-item">
-                    <a href="../index.html" class="link">Home</a>
+                    <a href="../index.php" class="link">Home</a>
                 </li>
                 <li class="footer-list-item">
-                    <a href="../about/about.html" class="link">About</a>`
+                    <a href="../booking/booking.php" class="link">Booking</a>
                 </li>
                 <li class="footer-list-item">
-                    <a href="../contact-us/contact_us.html" class="link">Contact Us</a>
+                    <a href="../about/about.php" class="link">About</a>`
+                </li>
+                <li class="footer-list-item">
+                    <a href="../contact-us/contact_us.php" class="link">Contact Us</a>
                 </li>
                 <li class="footer-list-item">
                     <a href="#main-header" class="link">Back to Top</a>
                 </li>
+                <?php if (!isset($_SESSION['id'])) { ?>
                 <li class="footer-list-item">
                     <a href="../signin-and-signup/signup.php" class="link">Sign Up</a>
                 </li>
                 <li class="footer-list-item">
                     <a href="../signin-and-signup/signin.php" class="link">Login</a>
                 </li>
+                <?php } else { ?>
+                <li class="footer-list-item">
+                    <a href="../userProfile/profile.php" class="link">Profile</a>
+                </li>
+                <?php } ?>
             </ul>
         </nav>
         <p class="copywrite">&copy; NightStar Hotel</p>

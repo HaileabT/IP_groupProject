@@ -43,6 +43,8 @@ if (!$user) {
 }
 if ($row = mysqli_fetch_array($user)) {
     $user_id = $row['id'];
+    $last_name = $row['last_name'];
+    $middle_name = $row['middle_name'];
     $user_name = $row["first_name"];
     $user_email = $row["email"];
     $user_password = $row["passsword"];
@@ -54,6 +56,8 @@ if ($row = mysqli_fetch_array($user)) {
         $_SESSION["email"] = $user_email;
         $_SESSION["id"] = $user_id;
         $_SESSION["first_name"] = $user_name;
+        $_SESSION['last_name'] = $last_name;
+        $_SESSION['middle_name'] = $middle_name;
         header("location: ../../../userProfile/profile.php?user_id= " . $user_id);
         exit();
     } else {
@@ -64,4 +68,3 @@ if ($row = mysqli_fetch_array($user)) {
     header("location: ./../../signin.php?error=invalid password or email");
     exit();
 }
-

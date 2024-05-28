@@ -191,3 +191,15 @@ main > article h1 {
   margin-bottom: 20px;
   font-size: 1.3rem;
 }
+
+.err-msg {
+  color: red;
+  text-align: center;
+  font-weight: lighter;
+}
+
+.success-msg {
+  color: rgb(45, 255, 66);
+  text-align: center;
+  font-weight: lighter;
+}
