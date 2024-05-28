@@ -1,3 +1,8 @@
+<?php
+session_save_path('C:\xampp_sessions');
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,23 +32,33 @@
       <nav id="primary-nav">
         <ul type="none" class="nav-ul header-links-nav-ul">
           <li id="head-home-list">
-            <a href="../index.html" id="head-home-link" class="link">Home</a>
+            <a href="../index.php" id="head-home-link" class="link">Home</a>
           </li>
           <li id="head-booking-list">
-            <a href="../booking/booking.html" id="head-booking-link" class="link">Book Now</a>
+            <a href="../booking/booking.php" id="head-booking-link" class="link">Book Now</a>
           </li>
           <li id="head-about-us-list">
-            <a href="about.html" id="head-about-us-link" class="link current">About</a>
+            <a href="../about/about.php" id="head-about-us-link" class="link current">About</a>
           </li>
           <li id="head-contact-us-list">
-            <a href="../contact-us/contact_us.html" id="head-contact-us-link" class="link">Contact Us</a>
+            <a href="../contact-us/contact_us.php" id="head-contact-us-link" class="link">Contact Us</a>
           </li>
-          <li id="head-signup-list">
-            <a href="../signin-and-signup/signup.php" id="head-signup-link" class="link">Sign Up</a>
-          </li>
-          <li id="head-login-list">
-            <a href="../signin-and-signup/signin.php" id="head-login-link" class="link">Login</a>
-          </li>
+          <?php if (empty($_SESSION['id'])) { ?>
+
+            <li id="head-signup-list">
+              <a href="../signin-and-signup/signup.php" id="head-signup-link" class="link">Sign Up</a>
+            </li>
+            <li id="head-login-list">
+              <a href="../signin-and-signup/signin.php" id="head-login-link" class="link">Login</a>
+            </li>
+
+          <?php } else { ?>
+
+            <li id="head-profile-list">
+              <a href="../userProfile/profile.php" id="head-contact-us-link" class="link">Profile</a>
+            </li>
+
+          <?php } ?>
         </ul>
       </nav>
       <button class="menu-btn">
@@ -56,8 +71,7 @@
         <h1>NIGHTSTAR HOTEL</h1>
       </div>
       <h1>OUR GOAL IS TO SERVE YOU, AND <span>SERVE YOU WELL</span>.</h1>
-      <a href="booking/booking.html" class="call-to-action goto-booking">Book Now <i
-          class="fa-solid fa-square-arrow-up-right"></i></a>
+      <a href="booking/booking.html" class="call-to-action goto-booking">Book Now <i class="fa-solid fa-square-arrow-up-right"></i></a>
     </div>
   </header>
 
@@ -213,23 +227,29 @@
     <nav class="footer-nav-links">
       <ul>
         <li class="footer-list-item">
-          <a href="../index.html" class="link">Home</a>
+          <a href="../index.php" class="link">Home</a>
         </li>
         <li class="footer-list-item">
-          <a href="../booking/booking.html" class="link">Booking</a>
+          <a href="../booking/booking.php" class="link">Booking</a>
         </li>
         <li class="footer-list-item">
-          <a href="../contact-us/contact_us.html" class="link">Contact Us</a>
+          <a href="../contact-us/contact_us.php" class="link">Contact Us</a>
         </li>
         <li class="footer-list-item">
           <a href="#main-header" class="link">Back to Top</a>
         </li>
-        <li class="footer-list-item">
-          <a href="../signin-and-signup/signup.php" class="link">Sign Up</a>
-        </li>
-        <li class="footer-list-item">
-          <a href="../signin-and-signup/signin.php" class="link">Login</a>
-        </li>
+        <?php if (empty($_SESSION['id'])) { ?>
+          <li class="footer-list-item">
+            <a href="../signin-and-signup/signup.php" class="link">Sign Up</a>
+          </li>
+          <li class="footer-list-item">
+            <a href="../signin-and-signup/signin.php" class="link">Login</a>
+          </li>
+        <?php } else { ?>
+          <li class="footer-list-item">
+            <a href="../userProfile/profile.php" class="link">Profile</a>
+          </li>
+        <?php } ?>
       </ul>
     </nav>
     <p class="copywrite">&copy; NightStar Hotel</p>

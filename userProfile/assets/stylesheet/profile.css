@@ -1,0 +1,119 @@
+/* #main-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  } */
+.added-footer{
+  position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+.remove-footer{
+  position:relative;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 300px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-content p {
+  margin: 0 0 20px;
+}
+
+.modal-buttons {
+  text-align: right;
+}
+
+.modal-buttons a {
+  margin-left: 10px;
+  padding: 8px 16px;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.modal-buttons button:hover {
+  background-color: #0056b3;
+}
+
+  @media screen and (max-width: 700px) {
+    .all-login-form-container {
+      width: 80%;
+    }
+  }
+  .profile-cont{
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  text-align: center;
+}
+.profile-cont h1 {
+  margin: 0;
+  font-size: 26px;
+  color: #00796b;
+}
+.profile-cont p {
+  margin: 10px 0;
+  font-size: 18px;
+  color: #546e7a;
+}
+.profile-cont .email {
+  font-weight: bold;
+  color: #004d40;
+}
+.profile-cont .separator {
+  width: 80%;
+  margin: 20px auto;
+  border-top: 2px solid #00acc1;
+}
