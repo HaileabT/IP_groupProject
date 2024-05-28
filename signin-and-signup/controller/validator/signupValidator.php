@@ -106,5 +106,8 @@ function inputCollector($input)
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 // tableCreation($connection) . "<br/>";
 // alterTable($connection);
-insertUser($connection, $first_name, $middle_name, $last_name, $email, $hashed_password, $telephone, $account_type, $account_no) . "<br/>";
+if (empty($error)) {
+
+    insertUser($connection, $first_name, $middle_name, $last_name, $email, $hashed_password, $telephone, $account_type, $account_no) . "<br/>";
+}
 // deleteUser($connection, 1);
