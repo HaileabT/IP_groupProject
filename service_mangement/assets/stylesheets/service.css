@@ -1,0 +1,122 @@
+main {
+  padding: 0 0 !important;
+}
+
+main > article h1 {
+  font-size: 3rem;
+  text-align: center;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  color: var(--background-color);
+}
+
+.room-form-container {
+  background-color: var(--background-color-2);
+  padding-bottom: 8em;
+  padding-top: 16em;
+}
+
+.room-form {
+  width: 80%;
+  max-width: 750px;
+  border: solid 1px var(--background-color);
+  padding: 2em;
+  border-radius: 0.5em;
+  margin: 0 auto;
+}
+
+.room-form label {
+  font-size: 1.7rem;
+  display: block;
+  color: var(--paragraph-color);
+}
+
+.input-container {
+  margin-bottom: 10px;
+}
+
+.room-form > div.name-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+}
+
+.room-form > input:not(:last-of-type),
+.room-form div > input,
+.room-form select,
+.room-form > textarea {
+  width: 100%;
+}
+
+.room-form input,
+.room-form select,
+.room-form > textarea {
+  background-color: var(--lighter-bg-color);
+  border: solid var(--darker-bg-color) 1px;
+  padding: 0.8em;
+  border-radius: 5px;
+}
+
+.room-form > textarea {
+  resize: vertical;
+}
+
+.radio-label {
+  display: inline !important;
+  font-size: 1.5rem;
+  color: var(--background-color);
+}
+
+#pickup-title {
+  margin-bottom: 10px;
+}
+
+#pickup-title p {
+  margin-bottom: 5px;
+}
+
+#pickup-title input {
+  accent-color: var(--background-color);
+}
+
+#add-room-btn {
+  background-color: var(--special-texts-color);
+  color: var(--darker-bg-color);
+  padding-left: 4em;
+  padding-right: 4em;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: max-content;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 460px) {
+  .booking-form > div.name-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+  }
+}
+
+.error-message {
+  font-size: 1.2rem;
+  color: red;
+}
+
+.output-customization {
+  display: flex;
+  gap: 20px;
+}
+
+.btns-container {
+  display: flex;
+  justify-content: space-between;
+}
+.danger-btn {
+  background-color: rgb(241, 92, 92) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 2px !important;
+}

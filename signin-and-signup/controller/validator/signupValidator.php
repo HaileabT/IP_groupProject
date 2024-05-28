@@ -1,7 +1,7 @@
 <?php
 echo "Welcome to this page!";
 require "../../../controller/database/dbConnection.php";
-require("../../controller/database/users/userTable.php");
+require ("../../controller/database/users/userTable.php");
 $first_name = $middle_name = $last_name = $email = $password = $conf_password = $telephone = $account_no = "";
 $check;
 $account_type = "cbe";
@@ -113,4 +113,4 @@ if (empty($error)) {
 } else {
     header("location:../../../signin-and-signup/signup.php?error=please fill all information correctly");
 }
-    // deleteUser($connection, 1);
+  
