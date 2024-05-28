@@ -3,7 +3,7 @@ echo "Welcome to this page!";
 require "../../../controller/database/dbConnection.php";
 require("../../controller/database/users/userTable.php");
 $first_name = $middle_name = $last_name = $email = $password = $conf_password = $telephone = $account_no = "";
-$check = '';
+$check;
 $account_type = "cbe";
 $error = [];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -92,7 +92,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     if (!isset($_POST["policy"])) {
-        $check = implode($_POST["policy"]);
+        $error["policy"][] = "please select the check box";
+    } else {
+        $check = $_POST["policy"];
     }
 }
 function inputCollector($input)
@@ -106,5 +108,9 @@ function inputCollector($input)
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 // tableCreation($connection) . "<br/>";
 // alterTable($connection);
-insertUser($connection, $first_name, $middle_name, $last_name, $email, $hashed_password, $telephone, $account_type, $account_no) . "<br/>";
+if (empty($error)) {
+    insertUser($connection, $first_name, $middle_name, $last_name, $email, $hashed_password, $telephone, $account_type, $account_no) . "<br/>";
+} else {
+    header("location:../../../signin-and-signup/signup.php?error=please fill all information correctly");
+}
     // deleteUser($connection, 1);

@@ -6,9 +6,7 @@
     <meta name="author" content="Section B Group 8" />
     <meta name="description" content="Sign Up to NightStar Hotel" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/stylesheets/signup.css" />
     <link rel="stylesheet" href="../global/stylesheets/global.css" />
     <link rel="stylesheet" href="../global/stylesheets/footer.css" />
@@ -57,9 +55,11 @@
             </div>
         </header>
         <div class="all-signup-container">
-            <form action="./controller/validator/signupValidator.php" method="POST" class="main-form-container"
-                id="all-form-group">
+            <form action="./controller/validator/signupValidator.php" method="POST" class="main-form-container" id="all-form-group">
                 <h1 class="signup-text">Signup</h1>
+                <?php if (isset($_GET["error"])) { ?>
+                    <p class="error" style="color: red; text-align:center; font-size:14px;"><?php echo $_GET["error"] ?></p>
+                <?php } ?>
                 <fieldset class="main-personal-container">
                     <legend>Personal Info</legend>
                     <div class="personal-input-container" id="all-personal-input">
@@ -67,8 +67,7 @@
                             <div class="first-name-container container">
                                 <label for="first-name">First Name</label><br />
                                 <div class="first-message-cont icon-cont">
-                                    <input type="text" id="first-name" minlength="2" custommaxlength="10" required
-                                        class="input" name="first-name" />
+                                    <input type="text" id="first-name" minlength="2" custommaxlength="10" required class="input" name="first-name" />
                                     <span class="success-icon"><i class="fa-solid fa-circle-check"></i></span>
                                     <span class="fail-icon"><i class="fa-solid fa-circle-exclamation"></i></span>
                                 </div>
@@ -77,8 +76,7 @@
                             <div class="last-name-container container">
                                 <label for="last-name">Last Name</label><br />
                                 <div class="second-message-cont icon-cont">
-                                    <input type="text" id="last-name" minlength="2" custommaxlength="10" required
-                                        class="input" name="last-name" />
+                                    <input type="text" id="last-name" minlength="2" custommaxlength="10" required class="input" name="last-name" />
                                     <span class="success-icon"><i class="fa-solid fa-circle-check"></i></span>
                                     <span class="fail-icon"><i class="fa-solid fa-circle-exclamation"></i></span>
                                 </div>
@@ -88,8 +86,7 @@
                         <div class="middle-name-container container">
                             <label for="middle-name">Middle Name</label>
                             <div class="middle-message-cont icon-cont">
-                                <input type="text" id="middle-name" maxlength="30" class="input" minlength="2"
-                                    custommaxlength="12" required name="middle-name" />
+                                <input type="text" id="middle-name" maxlength="30" class="input" minlength="2" custommaxlength="12" required name="middle-name" />
                                 <span class="success-icon"><i class="fa-solid fa-circle-check"></i></span>
                                 <span class="fail-icon"><i class="fa-solid fa-circle-exclamation"></i></span>
                             </div>
@@ -98,8 +95,7 @@
                         <div class="email-container container">
                             <label for="email">Email</label>
                             <div class="email-message-cont icon-cont">
-                                <input type="email" name="email" id="email" required class="input"
-                                    pattern="^(.+)@(.+)$" />
+                                <input type="email" name="email" id="email" required class="input" pattern="^(.+)@(.+)$" />
                                 <span class="success-icon"><i class="fa-solid fa-circle-check"></i></span>
                                 <span class="fail-icon"><i class="fa-solid fa-circle-exclamation"></i></span>
                             </div>
@@ -108,8 +104,7 @@
                         <div class="password-container container">
                             <label for="password">Password</label>
                             <div class="password-message-cont icon-cont">
-                                <input type="password" name="password" id="password" minlength="8" custommaxlength="15"
-                                    class="input" required autocomplete="password" />
+                                <input type="password" name="password" id="password" minlength="8" custommaxlength="15" class="input" required autocomplete="password" />
                                 <span class="success-icon"><i class="fa-solid fa-circle-check"></i></span>
                                 <span class="fail-icon"><i class="fa-solid fa-circle-exclamation"></i></span>
                             </div>
@@ -118,9 +113,7 @@
                         <div class="conf-container container">
                             <label for="conf-password">Confirm Password</label>
                             <div class="conf-message-cont icon-cont">
-                                <input type="password" name="conf-password" id="conf-password" minlength="8"
-                                    custommaxlength="15" match="password" class="input" autocomplete="conf-password"
-                                    required />
+                                <input type="password" name="conf-password" id="conf-password" minlength="8" custommaxlength="15" match="password" class="input" autocomplete="conf-password" required />
                                 <span class="success-icon"><i class="fa-solid fa-circle-check"></i></span>
                                 <span class="fail-icon"><i class="fa-solid fa-circle-exclamation"></i></span>
                             </div>
@@ -129,8 +122,7 @@
                         <div class="phone-container container">
                             <label for="tel">Phone Number</label>
                             <div class="phone-message-cont icon-cont">
-                                <input type="tel" name="tel" id="tel" pattern="09[0-9]{8}" class="input" min="9"
-                                    custommaxlength="10" required />
+                                <input type="tel" name="tel" id="tel" pattern="09[0-9]{8}" class="input" min="9" custommaxlength="10" required />
                                 <span class="success-icon"><i class="fa-solid fa-circle-check"></i></span>
                                 <span class="fail-icon"><i class="fa-solid fa-circle-exclamation"></i></span>
                             </div>
@@ -153,8 +145,7 @@
                         <div class="account-number-container container">
                             <label for="acc-no">Account Number</label><br />
                             <div class="account-message-cont icon-cont">
-                                <input type="number" name="acc-no" id="acc-no" placeholder="1000888888888" class="input"
-                                    required pattern="^\d{9,18}$" />
+                                <input type="number" name="acc-no" id="acc-no" placeholder="1000888888888" class="input" required pattern="^\d{9,18}$" />
                                 <span class="success-icon"><i class="fa-solid fa-circle-check"></i></span>
                                 <span class="fail-icon"><i class="fa-solid fa-circle-exclamation"></i></span>
                             </div>
