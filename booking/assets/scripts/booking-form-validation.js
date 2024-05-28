@@ -59,28 +59,28 @@ const validators = [
       return true;
     },
   },
-  {
-    errorMessage: "Please choose a room type",
-    validateLogic(roomType) {
-      console.log(roomType);
-      if (roomType === "") {
-        return false;
-      }
-      return true;
-    },
-  },
-  {
-    errorMessage: "Flight number is required.",
-    validateLogic(flightnum) {
-      if (document.getElementById("yes-pickup").checked) {
-        if (flightnum === "") {
-          this.errorMessage = "Flight number is required!";
-          return false;
-        }
-      }
-      return true;
-    },
-  },
+  // {
+  //   errorMessage: "Please choose a room type",
+  //   validateLogic(roomType) {
+  //     console.log(roomType);
+  //     if (roomType === "") {
+  //       return false;
+  //     }
+  //     return true;
+  //   },
+  // },
+  // {
+  //   errorMessage: "Flight number is required.",
+  //   validateLogic(flightnum) {
+  //     if (document.getElementById("yes-pickup").checked) {
+  //       if (flightnum === "") {
+  //         this.errorMessage = "Flight number is required!";
+  //         return false;
+  //       }
+  //     }
+  //     return true;
+  //   },
+  // },
 ];
 
 function createErrorMessage(errorMessage) {
@@ -159,7 +159,7 @@ document.getElementById("no-pickup").addEventListener("change", () => {
 });
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
+  // e.preventDefault();
   inputs.forEach((input, index) => {
     validateInput(input);
   });

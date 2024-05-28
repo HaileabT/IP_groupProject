@@ -6,9 +6,10 @@
     <meta name="author" content="Section B Group 8" />
     <meta name="description" content="Book one of the NightStar Hotel Sevices" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/stylesheets/booking.css" />
+    <link rel="stylesheet" href="assets/stylesheets/service.css" />
     <link rel="stylesheet" href="../global/stylesheets/footer.css" />
     <link rel="stylesheet" href="../global/stylesheets/global.css" />
+    <link rel="stylesheet" href="assets/stylesheets/booking.css">
     <link rel="stylesheet" href="../global/stylesheets/global-header.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
@@ -30,11 +31,11 @@
                         <a href="../index.html" id="head-home-link" class="link">Home</a>
                     </li>
                     <li id="head-booking-list">
-                        <a href="booking.html" id="head-booking-link" class="link current">Book Now</a>
+                        <a href="../booking/booking.php" id="head-booking-link" class="link">Book Now</a>
                     </li>
                     <li id="head-contact-us-list">
                         <a href="../service-mangement/service-management.php" id="head-contact-us-link"
-                            class="link">Service Management</a>
+                            class="link current">Service Management</a>
                     </li>
                     <li id="head-about-us-list">
                         <a href="../about/about.html" id="head-about-us-link" class="link">About</a>
@@ -66,11 +67,11 @@
                         <a href="../index.html" id="head-home-link" class="link">Home</a>
                     </li>
                     <li id="head-booking-list">
-                        <a href="booking.html" id="head-booking-link" class="link current">Book Now</a>
+                        <a href="../booking/booking.php" id="head-booking-link" class="link">Book Now</a>
                     </li>
                     <li id="head-contact-us-list">
                         <a href="../service_mangement/service-management.php" id="head-contact-us-link"
-                            class="link">Service Management</a>
+                            class="link current">Service Management</a>
                     </li>
                     <li id="head-about-us-list">
                         <a href="../about/about.html" id="head-about-us-link" class="link">About</a>
@@ -93,34 +94,65 @@
         </div>
     </header>
 
-
     <main>
+        <article class="room-form-container">
+            <h1 align="center" class="booking-title">
+                Add a Room
+            </h1>
+            <form action="./controller/validator/servicesValidator.php" method="POST" enctype="multipart/form-data"
+                class="room-form" id="room-form">
+                <div class="input-container">
+                    <label for="room-name">Name</label>
+                    <input type="text" id="room-name" name="room-name" placeholder="Enter room name" />
+                </div>
+                <div class="input-container">
+                    <label for="room-price" class="room-price">Price</label>
+                    <input type="number" id="room-price" name="room-price" />
+                </div>
+                <div class="input-container">
+                    <label for="room-picture" class="room-picture">Picture</label>
+                    <input type="file" accept="image/*" id="room-picture" name="room-picture" />
+                </div>
+                <div class="input-container">
+                    <label for="room-type-select">Room Type</label>
+                    <select form="room-form" name="room-type-select" id="room-type-select" class="room-type-select">
+                        <option value="studio" selected>Studio</option>
+                        <option value="suite">Suite</option>
+                        <option value="deluxe">Deluxe</option>
+                        <option value="triple">Triple</option>
+                    </select>
+                </div>
+                <input type="submit" value="Add Room" id="add-room-btn" />
+            </form>
+        </article>
+
+
         <article class="booking-filter-container">
             <h1 align="center" class="booking-title">
-                Reserve Now for Unforgettable Moments at NightStars Hotel
+                Rooms Dashboard
             </h1>
             <div class="rooms-query-container">
-                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="GET" class="booking-form"
-                    id="room-form">
+                <form action="/service_mangement/service-management.php" method="GET" class="booking-form"
+                    id="room-form-search">
                     <?php $search_value = !isset($_GET['search-tab']) ? "" : $_GET['search-tab'];
                     $search_tab_value = $search_value === "" ? "" : "value=$search_value";
                     ?>
                     <div class="input-container">
                         <label for="search-tab">Search</label>
-                        <input type="text" form="room-form" name="search-tab" <?php echo $search_tab_value ?>
+                        <input type="text" form="room-form-search" name="search-tab" <?php echo $search_tab_value ?>
                             id="search-tab">
                     </div>
                     <div class="output-customization">
                         <div class="input-container">
                             <label for="room-sorting">Sort By</label>
-                            <select form="room-form" name="room-sorting" id="room-sorting" class="room-sorting">
+                            <select form="room-form-search" name="room-sorting" id="room-sorting" class="room-sorting">
                                 <option value="room_name" selected>Default (Name)</option>
                                 <option value="price">Price</option>
                             </select>
                         </div>
                         <div class="input-container">
                             <label for="room-type-select">Room Type</label>
-                            <select form="room-form" name="room-type-select" id="room-type-select"
+                            <select form="room-form-search" name="room-type-select" id="room-type-select"
                                 class="room-type-select">
                                 <option value="" selected disabled>Select any room type</option>
                                 <option value="studio">Studio</option>
@@ -130,11 +162,11 @@
                             </select>
                         </div>
                     </div>
-                    <input type="submit" value="Search" form="room-form" id="search-room-btn">
+                    <input type="submit" value="Search" form="room-form-search" id="search-room-btn">
                 </form>
             </div>
             <?php
-            require "./controller/database/bookingInfo.php";
+            require "../booking/controller/database/bookingInfo.php";
             require "../controller/database/dbConnection.php";
             $room_name = "";
             $room_type = "";
@@ -163,28 +195,28 @@
                 $room_pic_db = $row['picture'];
                 $room_type_db = $row['room_type'];
                 $room_price_db = $row['price'];
-                $self = $_SERVER['PHP_SELF'];
                 $room_id_db = $row['id'];
-                $disabled = array_key_exists("room-book-btn$room_id_db", $_GET) ? "disabled" : "";
-                if ($room_choice === -1) {
-                    $room_choice = $disabled === "" ? -1 : $room_id_db;
-                }
                 //        $php_self = "<?php echo htmlspecialchars($self)
                 echo "<li class='room-list-item'>";
                 echo "<img class='room-list-img' alt='$room_name_db' src='$room_pic_db' title='$room_name_db'/>";
                 echo " <div class='room-details-container'>";
                 echo "<div>";
                 echo "<h3 class='room-list-name'>$room_name_db</h3>";
+                echo "<h3 class='room-name'>Price: $$room_price_db</h3>";
                 echo "<p class='room-list-type'>$room_type_db</p>";
                 echo "</div>";
-                echo "<form action='/booking/booking.php' method='POST'>";
-                echo "<input type='hidden' name='search-tab' value='$room_name' />";
-                echo "<input type='hidden' name='room_sorting' value='$room_sort' />";
-                echo "<input type='hidden' name='room-type-select' value='$room_type' />";
+                echo "<div class='btns-container'>";
+                echo "<form action='service_update_page.php' method='POST'>";
+                echo "<input type='hidden' name='room_choice_id' value='$room_id_db' />";
                 echo "<input type='hidden' name='room-list-page' value='$page' />";
-                echo "<input type='submit' name='room-book-btn$room_id_db' value='$$room_price_db' class='room-select book-btn'
-                        $disabled>";
+                echo "<input type='submit' name='room-book-btn$room_id_db' value='Edit Room' class='room-select book-btn'>";
                 echo "</form>";
+                echo "<form action='controller/util/roomDBHelperD.php' method='POST'>";
+                echo "<input type='hidden' name='room_choice_id' value='$room_id_db' />";
+                echo "<input type='hidden' name='room-list-page' value='$page' />";
+                echo "<input type='submit' name='room-book-btn$room_id_db' value='Remove' class='room-select book-btn danger-btn'>";
+                echo "</form>";
+                echo "</div>";
                 echo "</div>";
                 echo "</li>";
             }
@@ -192,73 +224,8 @@
                 ?>
         </article>
 
-        <article class="booking-form-container">
-            <form action="/booking/controller/validator/bookingValidator.php" method="POST" class="booking-form"
-                id="booking-form">
-                <?php
-                if ($GLOBALS['room_choice'] != -1) {
-                } else {
-                    echo "<span class='choose-room-error'>Please make sure to choose a room</span>";
-                }
-                ?>
-                <input type="hidden" form="booking-form" name="room_choice_id" value="<?php echo $room_choice ?>" />
-                <label for="booking-first-name booking-last-name">Name</label>
-                <div class="name-container">
-                    <div class="input-container">
-                        <input type="" name="first-name" form="booking-form" id="booking-first-name"
-                            placeholder="Enter first name" />
-                    </div>
-                    <div class="input-container">
-                        <input type="text" name="last-name" form="booking-form" id="booking-last-name"
-                            placeholder="Enter last name" />
-                    </div>
-                </div>
-                <label for="booking-email" class="email-title">Email</label>
-                <div class="input-container">
-                    <input type="email" id="booking-email" form="booking-form" name="email"
-                        placeholder="myname@example.com" />
-                </div>
-                <!-- <label for="booking-room-type-title" class="room-type-title">Room type</label> -->
-                <!-- <div class="input-container">
-                        <select name="" id="booking-room-type-title" aria-placeholder="Please Select">
-                            <option value="" selected>Please Select</option>
-                            <option value="std-room-1-2">Standard Room(1 to 2 People)</option>
-                            <option value="family-room-2-4">Fmily Room(2 to 4 People)</option>
-                            <option value="p-room-1-3">Private Room(1 to 3 People)</option>
-                            <option value="md-room-6">Mix Dorm Room(6 People)</option>
-                            <option value="female-d-room-6">
-                                Female Dorm Room(6 People)
-                            </option>
-                            <option value="male-d-room-6">Male Dorm Room(6 People)</option>
-                        </select>
-                    </div> -->
-                <label for="guest-number" id="guest-number-title">Number of Guests</label>
-                <div class="input-container">
-                    <input type="number" value="0" form="booking-form" name="number-of-guests" />
-                </div>
-                <div>
-                    <div>
-                        <label for="booking-arrival-date" id="arrival-date-title">Arrival Date</label>
-                        <div class="input-container">
-                            <input type="date" class="booking-arrival-date" form="booking-form" name="arrival-date"
-                                id="arrival-date" aria-placeholder="DD-MM-YY" />
-                        </div>
-                    </div>
-                    <div>
-                        <label for="booking-departure-date" id="departure-date-title">Departure
-                            Date</label>
-                        <div class="input-container">
-                            <input type="date" class="booking-departure-date" name="departure-date" form="booking-form"
-                                id="departure-date" aria-placeholder="DD-MM-YY" />
-                        </div>
-                    </div>
-                </div>
-                <!-- <label for="special-request" id="special-request-title">Special Request</label>
-                    <textarea name="" id="" cols="50" rows="4" id="special-request"></textarea> -->
-                <input type="submit" form="booking-form" value="Book" id="book-btn" />
-            </form>
-        </article>
     </main>
+
     <footer id="main-footer">
         <div class="logo-container footer-logo-container">
             <h1 class="logo">LOGO</h1>
@@ -270,7 +237,7 @@
                     <a href="../index.html" class="link">Home</a>
                 </li>
                 <li class="footer-list-item">
-                    <a href="../about/about.html" class="link">About</a>
+                    <a href="../about/about.html" class="link">About</a>`
                 </li>
                 <li class="footer-list-item">
                     <a href="../contact-us/contact_us.html" class="link">Contact Us</a>
@@ -291,7 +258,6 @@
     <script src="assets/scripts/booking-form-validation.js"></script>
     <script src="assets/scripts/booking-form-validation.js"></script>
     <script src="../global/scripts/header.js"></script>
-</body>
 </body>
 
 </html>
