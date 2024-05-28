@@ -51,12 +51,6 @@ if (isset($_SESSION["email"]) && isset($_SESSION["id"])) {
                         <li id="head-booking-list">
                             <a href="../booking/booking.php" id="head-booking-link" class="link">Book Now</a>
                         </li>
-                        <?php if ($user_position === "admin") { ?>
-                            <li id="head-contact-us-list">
-                                <a href="../service_mangement/service-management.php" id="head-contact-us-link"
-                                    class="link">Services</a>
-                            </li>
-                        <?php } ?>
                         <li id="head-about-us-list">
                             <a href="../about/about.php" id="head-about-us-link" class="link">About</a>
                         </li>
@@ -171,7 +165,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["id"])) {
             </form>
         </div>
         <div class="profile-cont">
-            <h1><?php echo htmlspecialchars($_SESSION["first_name"] . ' ' . $_SESSION["middle_name"] . ' ' . $_SESSION["last_name"]); ?>
+            <h1><?php echo htmlspecialchars($firstName . ' ' . $middleName . ' ' . $lastName); ?>
             </h1>
             <p class="email"><?php echo htmlspecialchars($_SESSION["email"]); ?></p>
             <div class="separator"></div>
@@ -189,11 +183,6 @@ if (isset($_SESSION["email"]) && isset($_SESSION["id"])) {
                     <li class="footer-list-item">
                         <a href="../booking/booking.php" class="link">Booking</a>
                     </li>
-                    <?php if ($user_position === 'admin') { ?>
-                        <li class="footer-list-item">
-                            <a href="../service_mangement/service-management.php" class="link">Services</a>
-                        </li>
-                    <?php } ?>
                     <li class="footer-list-item">
                         <a href="../about/about.php" class="link">About</a>
                     </li>

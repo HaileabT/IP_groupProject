@@ -1,5 +1,6 @@
 <?php
-
+session_save_path('C:\xampp_sessions');
+session_start();
 function tableCreation($connection)
 {
     $sql = "CREATE TABLE User (
@@ -22,24 +23,20 @@ function tableCreation($connection)
 function insertUser($connection, string $first_name, string $middle_name, string $last_name, string $email, string $password, string $phone_no, $account_type, $account_no)
 {
     $sql = "INSERT INTO User (first_name,middle_name,last_name,email,passsword,phone_no,account_type,account_no) VALUES('$first_name','$middle_name','$last_name','$email','$password','$phone_no','$account_type','$account_no')";
-    $idSql = "SELECT * FROM User ORDER BY id DESC LIMIT 1";
-    $query = mysqli_query($connection, $idSql);
 
     if (mysqli_query($connection, $sql)) {
-        if ($query) {
-            $last_row = mysqli_fetch_assoc($query);
-            $id = $last_row["id"];
-            session_save_path('C:\xampp_sessions');
-            session_start();
-            $_SESSION["id"] = $id;
-            $_SESSION["email"] = $email;
-            $_SESSION["first_name"] = $first_name;
-            $_SESSION["last_name"] = $last_name;
-            $_SESSION["middle_name"] = $middle_name;
-            $_SESSION["account_no"] = $account_no;
-            $_SESSION['position'] = "std_user";
-            header("location:../../../../userProfile/profile.php");
-            echo "user successfully inserted";
+        $sql = "SELECT * FROM User WHERE email='$email'";
+        $user = mysqli_query($connection, $sql);
+        if (!$user) {
+            header("location:../../../signup.php?error=please fill all information carefully");
+        } else {
+            if ($row = mysqli_fetch_array($user)) {
+                $_SESSION["id"] = $row['id'];
+                $_SESSION["email"] = $row["email"];
+                $_SESSION["first_name"] = $row["first_name"];
+                header("location:../../../userProfile/profile.php");
+                echo "user successfully inserted";
+            }
         }
     } else {
         echo "Creation error" . $sql . mysqli_error($connection);

@@ -55,7 +55,10 @@ editPro.addEventListener("click",e=>{
     e.stopPropagation();
 editFormId.style.display='block';
 })
-// document.addEventListener("click",e=>{
-//     editFormId.style.display='none';
-// });
+document.getElementById("all-form-group").addEventListener('click',e=>{
+    e.stopPropagation();
+})
+document.addEventListener("click",e=>{
+    editFormId.style.display='none';
+});
 
