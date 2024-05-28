@@ -60,7 +60,7 @@
             <form action=".././signin-and-signup/controller/validator/signinValidator.php" method="POST"
                 class="all-login-form-container" id="all-form-group">
                 <?php if (isset($_GET["error"])) { ?>
-                <p class="error" style="color: red; text-align:center; font-size:14px;"><?php echo $_GET["error"] ?></p>
+                    <p class="error" style="color: red; text-align:center; font-size:14px;"><?php echo $_GET["error"] ?></p>
                 <?php } ?>
                 <div class="login-email-container container">
                     <label for="email">Email</label><br />

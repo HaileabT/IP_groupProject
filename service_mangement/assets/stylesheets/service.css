@@ -120,3 +120,15 @@ main > article h1 {
   border: none !important;
   border-radius: 2px !important;
 }
+
+.err-msg {
+  color: red;
+  text-align: center;
+  font-weight: lighter;
+}
+
+.success-msg {
+  color: rgb(45, 255, 66);
+  text-align: center;
+  font-weight: lighter;
+}

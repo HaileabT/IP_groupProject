@@ -1,6 +1,14 @@
 <?php
 session_save_path('C:\xampp_sessions');
 session_start();
+
+if (isset($_SESSION["email"]) && isset($_SESSION["id"])) {
+    include "controller/database/dbConnection.php";
+    $userId = $_SESSION["id"];
+    $sql = "SELECT * FROM User WHERE id='$userId'";
+    $userData = mysqli_fetch_array(mysqli_query($connection, $sql));
+    $user_position = $userData['position'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,6 +46,12 @@ session_start();
                     <li id="head-booking-list">
                         <a href="./booking/booking.php" id="head-booking-link" class="link">Book Now</a>
                     </li>
+                    <?php if (isset($_SESSION['id']) && $user_position === 'admin') { ?>
+                    <li id="head-contact-us-list">
+                        <a href="../service_mangement/service-management.php" id="head-contact-us-link"
+                            class="link">Services</a>
+                    </li>
+                    <?php } ?>
                     <li id="head-about-us-list">
                         <a href="./about/about.php" id="head-about-us-link" class="link">About</a>
                     </li>
@@ -225,6 +239,11 @@ session_start();
                 <li class="footer-list-item">
                     <a href="booking/booking.html" class="link">Booking</a>
                 </li>
+                <?php if (isset($_SESSION['id']) && $user_position === 'admin') { ?>
+                <li class="footer-list-item">
+                    <a href="../service_mangement/service-management.php" class="link">Services</a>
+                </li>
+                <?php } ?>
                 <li class="footer-list-item">
                     <a href="about/about.html" class="link">About</a>
                 </li>

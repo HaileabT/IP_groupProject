@@ -37,6 +37,7 @@ function insertUser($connection, string $first_name, string $middle_name, string
             $_SESSION["last_name"] = $last_name;
             $_SESSION["middle_name"] = $middle_name;
             $_SESSION["account_no"] = $account_no;
+            $_SESSION['position'] = "std_user";
             header("location:../../../../userProfile/profile.php");
             echo "user successfully inserted";
         }

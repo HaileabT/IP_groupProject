@@ -12,7 +12,8 @@ if (isset($_SESSION["email"]) && isset($_SESSION["id"])) {
     $lastName = $userData["last_name"];
     $middleName = $userData["middle_name"];
     $accountNo = $userData["account_no"];
-?>
+    $user_position = $userData['position'];
+    ?>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -26,7 +27,9 @@ if (isset($_SESSION["email"]) && isset($_SESSION["id"])) {
         <link rel="stylesheet" href="../global/stylesheets/global.css" />
         <link rel="stylesheet" href="../global/stylesheets/global-header.css" />
         <link rel="stylesheet" href="./assets/stylesheet/profile.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet" />
         <script src="../signin-and-signup/assets/scripts/sign.js" defer></script>
         <script src="./assets/scripts/profile.js" defer></script>
@@ -48,6 +51,12 @@ if (isset($_SESSION["email"]) && isset($_SESSION["id"])) {
                         <li id="head-booking-list">
                             <a href="../booking/booking.php" id="head-booking-link" class="link">Book Now</a>
                         </li>
+                        <?php if ($user_position === "admin") { ?>
+                            <li id="head-contact-us-list">
+                                <a href="../service_mangement/service-management.php" id="head-contact-us-link"
+                                    class="link">Services</a>
+                            </li>
+                        <?php } ?>
                         <li id="head-about-us-list">
                             <a href="../about/about.php" id="head-about-us-link" class="link">About</a>
                         </li>
@@ -90,7 +99,8 @@ if (isset($_SESSION["email"]) && isset($_SESSION["id"])) {
 
 
         <div class="all-signup-container">
-            <form action=".././signin-and-signup/controller/validator/editValidator.php" method="POST" class="main-form-container" id="all-form-group" style="display: none;">
+            <form action=".././signin-and-signup/controller/validator/editValidator.php" method="POST"
+                class="main-form-container" id="all-form-group" style="display: none;">
                 <h1 class="signup-text">Edit Profile</h1>
                 <fieldset class="main-personal-container">
                     <legend>Personal Info</legend>
@@ -99,7 +109,8 @@ if (isset($_SESSION["email"]) && isset($_SESSION["id"])) {
                             <div class="first-name-container container">
                                 <label for="first-name">First Name</label><br />
                                 <div class="first-message-cont icon-cont">
-                                    <input type="text" id="first-name" minlength="2" value="<?php echo $firstName ?>" custommaxlength="10" required class="input" name="first-name" />
+                                    <input type="text" id="first-name" minlength="2" value="<?php echo $firstName ?>"
+                                        custommaxlength="10" required class="input" name="first-name" />
                                     <span class="success-icon"><i class="fa-solid fa-circle-check"></i></span>
                                     <span class="fail-icon"><i class="fa-solid fa-circle-exclamation"></i></span>
                                 </div>
@@ -108,7 +119,8 @@ if (isset($_SESSION["email"]) && isset($_SESSION["id"])) {
                             <div class="last-name-container container">
                                 <label for="last-name">Last Name</label><br />
                                 <div class="second-message-cont icon-cont">
-                                    <input type="text" id="last-name" value="<?php echo $lastName ?>" minlength="2" custommaxlength="10" required class="input" name="last-name" />
+                                    <input type="text" id="last-name" value="<?php echo $lastName ?>" minlength="2"
+                                        custommaxlength="10" required class="input" name="last-name" />
                                     <span class="success-icon"><i class="fa-solid fa-circle-check"></i></span>
                                     <span class="fail-icon"><i class="fa-solid fa-circle-exclamation"></i></span>
                                 </div>
@@ -118,7 +130,8 @@ if (isset($_SESSION["email"]) && isset($_SESSION["id"])) {
                         <div class="middle-name-container container">
                             <label for="middle-name">Middle Name</label>
                             <div class="middle-message-cont icon-cont">
-                                <input type="text" id="middle-name" value="<?php echo $middleName ?>" maxlength="30" class="input" minlength="2" custommaxlength="12" required name="middle-name" />
+                                <input type="text" id="middle-name" value="<?php echo $middleName ?>" maxlength="30"
+                                    class="input" minlength="2" custommaxlength="12" required name="middle-name" />
                                 <span class="success-icon"><i class="fa-solid fa-circle-check"></i></span>
                                 <span class="fail-icon"><i class="fa-solid fa-circle-exclamation"></i></span>
                             </div>
@@ -141,7 +154,8 @@ if (isset($_SESSION["email"]) && isset($_SESSION["id"])) {
                         <div class="account-number-container container">
                             <label for="acc-no">Account Number</label><br />
                             <div class="account-message-cont icon-cont">
-                                <input type="number" name="acc-no" value="<?php echo $accountNo ?>" id="acc-no" placeholder="1000888888888" class="input" required pattern="^\d{9,18}$" />
+                                <input type="number" name="acc-no" value="<?php echo $accountNo ?>" id="acc-no"
+                                    placeholder="1000888888888" class="input" required pattern="^\d{9,18}$" />
                                 <span class="success-icon"><i class="fa-solid fa-circle-check"></i></span>
                                 <span class="fail-icon"><i class="fa-solid fa-circle-exclamation"></i></span>
                             </div>
@@ -175,6 +189,11 @@ if (isset($_SESSION["email"]) && isset($_SESSION["id"])) {
                     <li class="footer-list-item">
                         <a href="../booking/booking.php" class="link">Booking</a>
                     </li>
+                    <?php if ($user_position === 'admin') { ?>
+                        <li class="footer-list-item">
+                            <a href="../service_mangement/service-management.php" class="link">Services</a>
+                        </li>
+                    <?php } ?>
                     <li class="footer-list-item">
                         <a href="../about/about.php" class="link">About</a>
                     </li>
@@ -191,7 +210,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["id"])) {
     </body>
 
     </html>
-<?php
+    <?php
 } else {
     header("location:./../signin-and-signup/signin.php");
     exit();

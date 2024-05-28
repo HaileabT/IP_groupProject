@@ -9,12 +9,19 @@ try {
 
         require "./../../../controller/database/dbConnection.php";
         require "../database/services.php";
+
+        if (!isset($_POST['room-name']) || !isset($_POST['room-price']) || !isset($_POST['room-picture']) || !isset($_POST['room-type-select'])) {
+            header("Location: /service_mangement/service-management.php?error=Please insert the required fields");
+            exit();
+        }
         // tableCreation($connection);
         if (insertRoom($connection, $roomName, $price, $roomType)) {
             //some code
+            header("Location: /service_mangement/service-management.php?success=Added Room");
+            exit();
         } else {
-            echo "<h1>INTERNAL SERVER ERROR 500</h1>";
-            die("Something is wrong on the server side!");
+            header("Location: /service_mangement/service-management.php?error=Internal Server Error");
+            exit();
         }
         $id;
         $findRoom = "SELECT * FROM rooms WHERE room_name='$roomName'";
@@ -23,8 +30,8 @@ try {
             $data = $room->fetch_array();
             $id = $data[0];
         } else {
-            echo "<h1>INTERNAL SERVER ERROR 500</h1>";
-            die("Something is wrong on the server side!");
+            header("Location: /service_mangement/service-management.php?error=Internal Server Error");
+            exit();
         }
 
 
@@ -36,21 +43,22 @@ try {
         if (!move_uploaded_file($filePath, $newFilePath)) {
             copy($filePath, $newFilePath);
         } else {
-            //  $updateRoomPicture = "UPDATE rooms picture=";
-            //  header("Location: ./../../service-management.php");
+            header("Location: /service_mangement/service-management.php?error=Internal Server Error");
+            exit();
         }
 
         if (mysqli_query($connection, "UPDATE rooms SET picture='$newFilePath' WHERE id=$id")) {
 
         } else {
-            echo "<h1>INTERNAL SERVER ERROR 500</h1>";
-            die("Something went very wrong.");
+            header("Location: /service_mangement/service-management.php?error=Internal Server Error");
+            exit();
         }
 
     }
 
 } catch (Exception) {
-    echo " ";
+    header("Location: /service_mangement/service-management.php?error=Internal Server Error");
+    exit();
 }
 
 ?>
