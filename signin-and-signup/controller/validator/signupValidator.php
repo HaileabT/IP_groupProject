@@ -1,12 +1,13 @@
 <?php
 echo "Welcome to this page!";
 require "../../../controller/database/dbConnection.php";
-require("../../controller/database/users/userTable.php");
-$first_name = $middle_name = $last_name = $email = $password = $conf_password = $telephone = $account_no = $bank = "";
-$check = $_POST["policy"];
+require ("../../controller/database/users/userTable.php");
+$first_name = $middle_name = $last_name = $email = $password = $conf_password = $telephone = $account_no = "";
+$check = '';
+$account_type = "cbe";
 $error = [];
-$check = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $account_type = $_POST["bank"];
     $first_name = inputCollector($_POST["first-name"]);
     $middle_name = inputCollector($_POST["last-name"]);
     $last_name = inputCollector($_POST["middle-name"]);
@@ -15,39 +16,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conf_password = inputCollector($_POST["conf-password"]);
     $telephone = inputCollector($_POST["tel"]);
     $account_no = inputCollector($_POST["acc-no"]);
-
-    $bank = $_POST["bank"];
-    if (isset($first_name)) {
+    $account_type = $_POST["bank"];
+    if (!isset($first_name)) {
         $error["first_name"][] = "first name is required";
     } else {
         if (strlen($first_name) < 3) {
             $error["first_name"][] = "name length must be greater than 3";
         }
-        if (!preg_match($first_name, '/^[a-zA-Z\s\-]+$/')) {
+        if (!preg_match('/^[a-zA-Z\s\-]+$/', $first_name)) {
             $error["first_name"][] = "invalid name";
         }
     }
-    if (isset($middle_name)) {
+    if (!isset($middle_name)) {
         $error["middle_name"][] = "middle name is required";
     } else {
         if (strlen($first_name) < 3) {
             $error["middle_name"][] = "name length must be greater than 3";
         }
-        if (!preg_match($first_name, '/^[a-zA-Z\s\-]+$/')) {
+        if (!preg_match('/^[a-zA-Z\s\-]+$/', $middle_name)) {
             $error["middle_name"][] = "invalid name";
         }
     }
-    if (isset($last_name)) {
+    if (!isset($last_name)) {
         $error["last_name"][] = "last name is required";
     } else {
         if (strlen($first_name) < 3) {
             $error["last_name"][] = "name length must be greater than 3";
         }
-        if (!preg_match($first_name, '/^[a-zA-Z\s\-]+$/')) {
+        if (!preg_match('/^[a-zA-Z\s\-]+$/', $last_name)) {
             $error["last_name"][] = "invalid name";
         }
     }
-    if (isset($password)) {
+    if (!isset($password)) {
         $error["password"][] = "password is required";
     } else {
         if (strlen($password) < 8) {
@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $error["password"][] = "password length must be less than 15";
         }
     }
-    if (isset($conf_password)) {
+    if (!isset($conf_password)) {
         $error["conf_password"][] = "password is required";
     } else {
         if (strlen($conf_password) < 8) {
@@ -70,26 +70,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $error["conf-password"][] = "password doesn't match";
         }
     }
-    if (isset($email)) {
+    if (!isset($email)) {
         $error["password"][] = "email is required";
     } else {
-        if (!preg_match($email, '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/')) {
+        if (!preg_match('/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i', $email)) {
             $error["email"][] = "invalid email address";
         }
     }
-    if (isset($account_no)) {
+    if (!isset($account_no)) {
         $error["account_no"][] = "account number is required";
     } else {
-        if (!preg_match($account_no, '^\d{9,18}$') || $account_no < 10 || $account_no > 18) {
+        if (!preg_match('/^\d{9,18}$/', $account_no) || strlen($account_no) < 9 || strlen($account_no) > 18) {
             $error["account_no"] = "invalid account number";
         }
     }
-    if (isset($telephone)) {
+    if (!isset($telephone)) {
         $error["telephone"][] = "account number is required";
     } else {
-        if (!preg_match($telephone, '^\d{10,12}$') || $tel < 9 || $account_no > 12) {
-            $error["telephone"] = "invalid account number";
+        if (!preg_match('/^\d{10,12}$/', $telephone) || strlen($telephone) < 10 || strlen($telephone) > 12) {
+            $error["telephone"] = "invalid telephone number";
         }
+    }
+    if (!isset($_POST["policy"])) {
+        $check = implode($_POST["policy"]);
     }
 }
 function inputCollector($input)
@@ -99,6 +102,9 @@ function inputCollector($input)
     $input = stripslashes($input);
     return $input;
 }
+
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 // tableCreation($connection) . "<br/>";
-insertUser($connection, $first_name, $middle_name, $last_name, $email, $hashed_password, $telephone, $account_no) . "<br/>";
+// alterTable($connection);
+insertUser($connection, $first_name, $middle_name, $last_name, $email, $hashed_password, $telephone, $account_type, $account_no) . "<br/>";
+// deleteUser($connection, 1);

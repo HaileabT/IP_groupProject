@@ -1,3 +1,7 @@
+<?php
+session_save_path('C:\xampp_sessions');
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,122 +22,95 @@
 </head>
 
 <body>
-    <header id="main-header">
-        <!-- <div class="logo-and-nav-container fixed-header">
-            <div class="logo-container header-logo-container">
-                <h1 class="logo">LOGO</h1>
-                <p class="hotel-name header-hotel-name">NightStar Hotel</p>
+    </head>
+
+    <body>
+        <header id="main-header">
+            <div class="logo-and-nav-container fixed-header">
+                <div class="logo-container header-logo-container">
+                    <h1 class="logo">LOGO</h1>
+                    <p class="hotel-name header-hotel-name">NightStar Hotel</p>
+                </div>
+                <nav id="primary-nav">
+                    <ul type="none" class="nav-ul header-links-nav-ul">
+                        <li id="head-home-list">
+                            <a href="../index.php" id="head-home-link" class="link">Home</a>
+                        </li>
+                        <li id="head-booking-list">
+                            <a href="../booking/booking.php" id="head-booking-link" class="link current">Book Now</a>
+                        </li>
+                        <li id="head-about-us-list">
+                            <a href="../about/about.php" id="head-about-us-link" class="link">About</a>
+                        </li>
+                        <li id="head-contact-us-list">
+                            <a href="../contact-us/contact_us.php" id="head-contact-us-link" class="link">Contact
+                                Us</a>
+                        </li>
+                        <?php if (empty($_SESSION['id'])) { ?>
+
+                        <li id="head-signup-list">
+                            <a href="../signin-and-signup/signup.php" id="head-signup-link" class="link">Sign Up</a>
+                        </li>
+                        <li id="head-login-list">
+                            <a href="../signin-and-signup/signin.php" id="head-login-link" class="link">Login</a>
+                        </li>
+
+                        <?php } else { ?>
+
+                        <li id="head-profile-list">
+                            <a href="../userProfile/profile.php" id="head-contact-us-link" class="link">Profile</a>
+                        </li>
+
+                        <?php } ?>
+                    </ul>
+                </nav>
+                <button class="menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </div>
-            <nav id="primary-nav">
-                <ul type="none" class="nav-ul header-links-nav-ul">
-                    <li id="head-home-list">
-                        <a href="../index.html" id="head-home-link" class="link">Home</a>
-                    </li>
-                    <li id="head-booking-list">
-                        <a href="booking.html" id="head-booking-link" class="link current">Book Now</a>
-                    </li>
-                    <li id="head-contact-us-list">
-                        <a href="../service-mangement/service-management.php" id="head-contact-us-link"
-                            class="link">Service Management</a>
-                    </li>
-                    <li id="head-about-us-list">
-                        <a href="../about/about.html" id="head-about-us-link" class="link">About</a>
-                    </li>
-                    <li id="head-contact-us-list">
-                        <a href="../contact-us/contact_us.html" id="head-contact-us-link" class="link">Contact
-                            Us</a>
-                    </li>
-                    <li id="head-signup-list">
-                        <a href="../signin-and-signup/signup.html" id="head-signup-link" class="link">Sign Up</a>
-                    </li>
-                    <li id="head-login-list">
-                        <a href="../signin-and-signup/signin.html" id="head-login-link" class="link">Login</a>
-                    </li>
-                </ul>
-            </nav>
-            <button class="menu-btn">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div> -->
-        <div class="logo-and-nav-container fixed-header">
-            <div class="logo-container header-logo-container">
-                <h1 class="logo">LOGO</h1>
-                <p class="hotel-name header-hotel-name">NightStar Hotel</p>
-            </div>
-            <nav id="primary-nav">
-                <ul type="none" class="nav-ul header-links-nav-ul">
-                    <li id="head-home-list">
-                        <a href="../index.html" id="head-home-link" class="link">Home</a>
-                    </li>
-                    <li id="head-booking-list">
-                        <a href="booking.html" id="head-booking-link" class="link current">Book Now</a>
-                    </li>
-                    <li id="head-contact-us-list">
-                        <a href="../service_mangement/service-management.php" id="head-contact-us-link"
-                            class="link">Service Management</a>
-                    </li>
-                    <li id="head-about-us-list">
-                        <a href="../about/about.html" id="head-about-us-link" class="link">About</a>
-                    </li>
-                    <li id="head-contact-us-list">
-                        <a href="../contact-us/contact_us.html" id="head-contact-us-link" class="link">Contact
-                            Us</a>
-                    </li>
-                    <li id="head-signup-list">
-                        <a href="../signin-and-signup/signup.php" id="head-signup-link" class="link">Sign Up</a>
-                    </li>
-                    <li id="head-login-list">
-                        <a href="../signin-and-signup/signin.php" id="head-login-link" class="link">Login</a>
-                    </li>
-                </ul>
-            </nav>
-            <button class="menu-btn">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
-    </header>
+        </header>
 
 
-    <main>
-        <article class="booking-filter-container">
-            <h1 align="center" class="booking-title">
-                Reserve Now for Unforgettable Moments at NightStars Hotel
-            </h1>
-            <div class="rooms-query-container">
-                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="GET" class="booking-form"
-                    id="room-form">
-                    <?php $search_value = !isset($_GET['search-tab']) ? "" : $_GET['search-tab'];
+        <main>
+            <article class="booking-filter-container">
+                <h1 align="center" class="booking-title">
+                    Reserve Now for Unforgettable Moments at NightStars Hotel
+                </h1>
+                <div class="rooms-query-container">
+                    <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" method="GET"
+                        class="booking-form" id="room-form">
+                        <?php $search_value = !isset($_GET['search-tab']) ? "" : $_GET['search-tab'];
                     $search_tab_value = $search_value === "" ? "" : "value=$search_value";
                     ?>
-                    <div class="input-container">
-                        <label for="search-tab">Search</label>
-                        <input type="text" form="room-form" name="search-tab" <?php echo $search_tab_value ?>
-                            id="search-tab">
-                    </div>
-                    <div class="output-customization">
                         <div class="input-container">
-                            <label for="room-sorting">Sort By</label>
-                            <select form="room-form" name="room-sorting" id="room-sorting" class="room-sorting">
-                                <option value="room_name" selected>Default (Name)</option>
-                                <option value="price">Price</option>
-                            </select>
+                            <label for="search-tab">Search</label>
+                            <input type="text" form="room-form" name="search-tab" <?php echo $search_tab_value ?>
+                                id="search-tab">
                         </div>
-                        <div class="input-container">
-                            <label for="room-type-select">Room Type</label>
-                            <select form="room-form" name="room-type-select" id="room-type-select"
-                                class="room-type-select">
-                                <option value="" selected disabled>Select any room type</option>
-                                <option value="studio">Studio</option>
-                                <option value="suite">Suite</option>
-                                <option value="deluxe">Deluxe</option>
-                                <option value="triple">Triple</option>
-                            </select>
+                        <div class="output-customization">
+                            <div class="input-container">
+                                <label for="room-sorting">Sort By</label>
+                                <select form="room-form" name="room-sorting" id="room-sorting" class="room-sorting">
+                                    <option value="room_name" selected>Default (Name)</option>
+                                    <option value="price">Price</option>
+                                </select>
+                            </div>
+                            <div class="input-container">
+                                <label for="room-type-select">Room Type</label>
+                                <select form="room-form" name="room-type-select" id="room-type-select"
+                                    class="room-type-select">
+                                    <option value="" selected disabled>Select any room type</option>
+                                    <option value="studio">Studio</option>
+                                    <option value="suite">Suite</option>
+                                    <option value="deluxe">Deluxe</option>
+                                    <option value="triple">Triple</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <input type="submit" value="Search" form="room-form" id="search-room-btn">
-                </form>
-            </div>
-            <?php
+                        <input type="submit" value="Search" form="room-form" id="search-room-btn">
+                    </form>
+                </div>
+                <?php
             require "./controller/database/bookingInfo.php";
             require "../controller/database/dbConnection.php";
             $room_name = "";
@@ -190,36 +167,36 @@
             }
             echo '</ul>'
                 ?>
-        </article>
+            </article>
 
-        <article class="booking-form-container">
-            <form action="/booking/controller/validator/bookingValidator.php" method="POST" class="booking-form"
-                id="booking-form">
-                <?php
+            <article class="booking-form-container">
+                <form action="/booking/controller/validator/bookingValidator.php" method="POST" class="booking-form"
+                    id="booking-form">
+                    <?php
                 if ($GLOBALS['room_choice'] != -1) {
                 } else {
                     echo "<span class='choose-room-error'>Please make sure to choose a room</span>";
                 }
                 ?>
-                <input type="hidden" form="booking-form" name="room_choice_id" value="<?php echo $room_choice ?>" />
-                <label for="booking-first-name booking-last-name">Name</label>
-                <div class="name-container">
-                    <div class="input-container">
-                        <input type="" name="first-name" form="booking-form" id="booking-first-name"
-                            placeholder="Enter first name" />
+                    <input type="hidden" form="booking-form" name="room_choice_id" value="<?php echo $room_choice ?>" />
+                    <label for="booking-first-name booking-last-name">Name</label>
+                    <div class="name-container">
+                        <div class="input-container">
+                            <input type="" name="first-name" form="booking-form" id="booking-first-name"
+                                placeholder="Enter first name" />
+                        </div>
+                        <div class="input-container">
+                            <input type="text" name="last-name" form="booking-form" id="booking-last-name"
+                                placeholder="Enter last name" />
+                        </div>
                     </div>
+                    <label for="booking-email" class="email-title">Email</label>
                     <div class="input-container">
-                        <input type="text" name="last-name" form="booking-form" id="booking-last-name"
-                            placeholder="Enter last name" />
+                        <input type="email" id="booking-email" form="booking-form" name="email"
+                            placeholder="myname@example.com" />
                     </div>
-                </div>
-                <label for="booking-email" class="email-title">Email</label>
-                <div class="input-container">
-                    <input type="email" id="booking-email" form="booking-form" name="email"
-                        placeholder="myname@example.com" />
-                </div>
-                <!-- <label for="booking-room-type-title" class="room-type-title">Room type</label> -->
-                <!-- <div class="input-container">
+                    <!-- <label for="booking-room-type-title" class="room-type-title">Room type</label> -->
+                    <!-- <div class="input-container">
                         <select name="" id="booking-room-type-title" aria-placeholder="Please Select">
                             <option value="" selected>Please Select</option>
                             <option value="std-room-1-2">Standard Room(1 to 2 People)</option>
@@ -232,66 +209,72 @@
                             <option value="male-d-room-6">Male Dorm Room(6 People)</option>
                         </select>
                     </div> -->
-                <label for="guest-number" id="guest-number-title">Number of Guests</label>
-                <div class="input-container">
-                    <input type="number" value="0" form="booking-form" name="number-of-guests" />
-                </div>
-                <div>
-                    <div>
-                        <label for="booking-arrival-date" id="arrival-date-title">Arrival Date</label>
-                        <div class="input-container">
-                            <input type="date" class="booking-arrival-date" form="booking-form" name="arrival-date"
-                                id="arrival-date" aria-placeholder="DD-MM-YY" />
-                        </div>
+                    <label for="guest-number" id="guest-number-title">Number of Guests</label>
+                    <div class="input-container">
+                        <input type="number" value="0" form="booking-form" name="number-of-guests" />
                     </div>
                     <div>
-                        <label for="booking-departure-date" id="departure-date-title">Departure
-                            Date</label>
-                        <div class="input-container">
-                            <input type="date" class="booking-departure-date" name="departure-date" form="booking-form"
-                                id="departure-date" aria-placeholder="DD-MM-YY" />
+                        <div>
+                            <label for="booking-arrival-date" id="arrival-date-title">Arrival Date</label>
+                            <div class="input-container">
+                                <input type="date" class="booking-arrival-date" form="booking-form" name="arrival-date"
+                                    id="arrival-date" aria-placeholder="DD-MM-YY" />
+                            </div>
+                        </div>
+                        <div>
+                            <label for="booking-departure-date" id="departure-date-title">Departure
+                                Date</label>
+                            <div class="input-container">
+                                <input type="date" class="booking-departure-date" name="departure-date"
+                                    form="booking-form" id="departure-date" aria-placeholder="DD-MM-YY" />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- <label for="special-request" id="special-request-title">Special Request</label>
+                    <!-- <label for="special-request" id="special-request-title">Special Request</label>
                     <textarea name="" id="" cols="50" rows="4" id="special-request"></textarea> -->
-                <input type="submit" form="booking-form" value="Book" id="book-btn" />
-            </form>
-        </article>
-    </main>
-    <footer id="main-footer">
-        <div class="logo-container footer-logo-container">
-            <h1 class="logo">LOGO</h1>
-        </div>
+                    <input type="submit" form="booking-form" value="Book" id="book-btn" />
+                </form>
+            </article>
+        </main>
+        <footer id="main-footer">
+            <div class="logo-container footer-logo-container">
+                <h1 class="logo">LOGO</h1>
+            </div>
 
-        <nav class="footer-nav-links">
-            <ul>
-                <li class="footer-list-item">
-                    <a href="../index.html" class="link">Home</a>
-                </li>
-                <li class="footer-list-item">
-                    <a href="../about/about.html" class="link">About</a>
-                </li>
-                <li class="footer-list-item">
-                    <a href="../contact-us/contact_us.html" class="link">Contact Us</a>
-                </li>
-                <li class="footer-list-item">
-                    <a href="#main-header" class="link">Back to Top</a>
-                </li>
-                <li class="footer-list-item">
-                    <a href="../signin-and-signup/signup.php" class="link">Sign Up</a>
-                </li>
-                <li class="footer-list-item">
-                    <a href="../signin-and-signup/signin.php" class="link">Login</a>
-                </li>
-            </ul>
-        </nav>
-        <p class="copywrite">&copy; NightStar Hotel</p>
-    </footer>
-    <script src="assets/scripts/booking-form-validation.js"></script>
-    <script src="assets/scripts/booking-form-validation.js"></script>
-    <script src="../global/scripts/header.js"></script>
-</body>
+            <nav class="footer-nav-links">
+                <ul>
+                    <li class="footer-list-item">
+                        <a href="../index.php" class="link">Home</a>
+                    </li>
+                    <li class="footer-list-item">
+                        <a href="../about//about.php" class="link">About</a>
+                    </li>
+                    <li class="footer-list-item">
+                        <a href="../contact-us/contact_us.php" class="link">Contact Us</a>
+                    </li>
+                    <li class="footer-list-item">
+                        <a href="#main-header" class="link">Back to Top</a>
+                    </li>
+                    <?php if (empty($_SESSION['id'])) { ?>
+                    <li class="footer-list-item">
+                        <a href="../signin-and-signup/signup.php" class="link">Sign Up</a>
+                    </li>
+                    <li class="footer-list-item">
+                        <a href="../signin-and-signup/signin.php" class="link">Login</a>
+                    </li>
+                    <?php } else { ?>
+                    <li class="footer-list-item">
+                        <a href="../userProfile/profile.php" class="link">Profile</a>
+                    </li>
+                    <?php } ?>
+                </ul>
+            </nav>
+            <p class="copywrite">&copy; NightStar Hotel</p>
+        </footer>
+        <script src="assets/scripts/booking-form-validation.js"></script>
+        <script src="assets/scripts/booking-form-validation.js"></script>
+        <script src="../global/scripts/header.js"></script>
+    </body>
 </body>
 
 </html>
