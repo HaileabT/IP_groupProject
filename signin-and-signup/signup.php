@@ -30,16 +30,16 @@
                 <nav id="primary-nav">
                     <ul type="none" class="nav-ul header-links-nav-ul">
                         <li id="head-home-list">
-                            <a href="../index.html" id="head-home-link" class="link">Home</a>
+                            <a href="../index.php" id="head-home-link" class="link">Home</a>
                         </li>
                         <li id="head-booking-list">
-                            <a href="../booking/booking.html" id="head-booking-link" class="link">Book Now</a>
+                            <a href="../booking/booking.php" id="head-booking-link" class="link">Book Now</a>
                         </li>
                         <li id="head-about-us-list">
-                            <a href="../about/about.html" id="head-about-us-link" class="link">About</a>
+                            <a href="../about/about.php" id="head-about-us-link" class="link">About</a>
                         </li>
                         <li id="head-contact-us-list">
-                            <a href="../contact-us/contact_us.html" id="head-contact-us-link" class="link">Contact
+                            <a href="../contact-us/contact_us.php" id="head-contact-us-link" class="link">Contact
                                 Us</a>
                         </li>
                         <li id="head-signup-list">
@@ -164,7 +164,7 @@
                 </fieldset>
                 <section class="foot-container">
                     <div class="checkbox-contianer">
-                        <input type="checkbox" name="policy[]" id="policy" class="agreement-box" />
+                        <input type="checkbox" name="policy" id="policy" class="agreement-box" />
                         <label for="policy" class="check-note">
                             By checking this body you confirm that you agree with our terms
                             and conditions that has to do with your account information on
@@ -185,16 +185,16 @@
             <nav class="footer-nav-links">
                 <ul>
                     <li class="footer-list-item">
-                        <a href="../index.html" class="link">Home</a>
+                        <a href="../index.php" class="link">Home</a>
                     </li>
                     <li class="footer-list-item">
-                        <a href="../booking/booking.html" class="link">Booking</a>
+                        <a href="../booking/booking.php" class="link">Booking</a>
                     </li>
                     <li class="footer-list-item">
-                        <a href="../about/about.html" class="link">About</a>
+                        <a href="../about/about.php" class="link">About</a>
                     </li>
                     <li class="footer-list-item">
-                        <a href="../contact-us/contact_us.html" class="link">Contact Us</a>
+                        <a href="../contact-us/contact_us.php" class="link">Contact Us</a>
                     </li>
                     <li class="footer-list-item">
                         <a href="#main-header" class="link">Back to Top</a>
