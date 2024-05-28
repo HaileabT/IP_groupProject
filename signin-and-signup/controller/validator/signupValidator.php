@@ -1,7 +1,7 @@
 <?php
 echo "Welcome to this page!";
 require "../../../controller/database/dbConnection.php";
-require("../../controller/database/users/userTable.php");
+require ("../../controller/database/users/userTable.php");
 $first_name = $middle_name = $last_name = $email = $password = $conf_password = $telephone = $account_no = "";
 $check = '';
 $account_type = "cbe";
@@ -107,4 +107,4 @@ $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 // tableCreation($connection) . "<br/>";
 // alterTable($connection);
 insertUser($connection, $first_name, $middle_name, $last_name, $email, $hashed_password, $telephone, $account_type, $account_no) . "<br/>";
-    // deleteUser($connection, 1);
+// deleteUser($connection, 1);

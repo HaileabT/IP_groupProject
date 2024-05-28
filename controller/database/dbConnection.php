@@ -1,6 +1,6 @@
 <?php
 $username = "root";
-$password = "e mandefro1216";
+$password = "Haile@mysql11";
 $serverName = "localhost";
 $connection = mysqli_connect($serverName, $username, $password, "ip_project_db");
 if (!$connection) {
@@ -8,3 +8,5 @@ if (!$connection) {
 } else {
     // echo "connected successfully";
 }
+
+?>
