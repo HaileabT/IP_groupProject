@@ -35,7 +35,7 @@ try {
         }
 
 
-        echo $filePath = $_FILES['room-picture']['tmp_name'];
+        $filePath = $_FILES['room-picture']['tmp_name'];
         echo $_POST['room-name'];
         $dirpath = "./../../../public/images/rooms/room$id";
         mkdir($dirpath);
